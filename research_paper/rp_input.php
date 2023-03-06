@@ -19,6 +19,8 @@
         $author = $_POST['author'];
         $co_author = $_POST['co_author'];
         $no_of_author = $_POST['no_of_authors'];
+        $department = $_POST['department'];
+        $university = $_POST['university'];
         $role = $_POST['role'];
         $current_status = $_POST['current_status'];
         $link_article = $_POST['link_article'];
@@ -28,7 +30,7 @@
     }
 
     // using sql to create a data entry query
-    $sql = "INSERT INTO research_paper_details (publications, index_rp, type_rp , title_article, journal_magazine_title, impact_factor, vol_no, doi, q_factor, publication_month, publication_year, publication_date, page_no, author, co_author, no_of_author, role, current_status, link_article, file_article, link_journal, abstract, status) VALUES ('$publications', '$index_rp', '$type_rp', '$title_article', '$j_m_title', '$impact_factor', '$vol_no', '$doi', '$q_factor', '$publication_month', '$publication_year','$publication_date', '$pg_no', '$author', '$co_author', '$no_of_author', '$role', '$current_status', '$link_article', '$file_article', '$link_journal', '$abstract', 1)";
+    $sql = "INSERT INTO research_paper_details (publications, index_rp, type_rp , title_article, journal_magazine_title, impact_factor, vol_no, doi, q_factor, publication_month, publication_year, publication_date, page_no, author, co_author, no_of_author, department, university, role, current_status, link_article, file_article, link_journal, abstract, status) VALUES ('$publications', '$index_rp', '$type_rp', '$title_article', '$j_m_title', '$impact_factor', '$vol_no', '$doi', '$q_factor', '$publication_month', '$publication_year','$publication_date', '$pg_no', '$author', '$co_author', '$no_of_author', '$department', '$university', '$role', '$current_status', '$link_article', '$file_article', '$link_journal', '$abstract', 1)";
 
     if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

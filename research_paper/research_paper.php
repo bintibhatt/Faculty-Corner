@@ -26,6 +26,7 @@
     </header>
     <h1>Faculty Accreditation</h1>
     <h2 style="margin-left:40%;">Research Paper Details</h2>
+    <a href="./rp_output.php" style="margin-left:5%;"><button>Back</button></a>
     <div class="form_container">
         <form method="POST" action="rp_input.php">
             <table class="form_table">
@@ -109,6 +110,15 @@
                 </tr>
 
                 <tr>
+                    <th><label>Department</label></th>
+                    <td><input type="text" name="department" class="t_field"></td>
+                    <th><label>University</label></th>
+                    <td><input type="text" name="university" class="t_field"></td>
+                </tr>
+
+                <tr>
+                    <th><label>Country</label></th>
+                    <td><input type="text" name="country" class="t_field"></td>
                     <th><label>Your Role</label></th>
                     <td>
                         <select id="role" name="role" class="dd_field">
@@ -120,23 +130,23 @@
                             <option value="other">Other</option>
                         </select>
                     </td>
-                    <th><label>Current status of work</label></th>
-                    <td><input type="text" name="current_status" class="t_field"></td>
                 </tr>
 
                 <tr>
+                    <th><label>Current status of work</label></th>
+                    <td><input type="text" name="current_status" class="t_field"></td>
                     <th><label>Link of article</label></th>
                     <td><input type="url" name="link_article" class="t_field"></td>
-                    <th><label>File of article</label></th>
-                    <td><input type="file" name="file_article" class="t_field"></td>
                 </tr>
                 <tr>
+                    <th><label>File of article</label></th>
+                    <td><input type="file" name="file_article" class="t_field"></td>
                     <th><label>Link of journal</label></th>
                     <td><input type="url" name="link_journal" class="t_field"></td>
-                    <th><label>Abstract</label></th>
-                    <td><input type="text" name="abstract" class="t_field"></td>
                 </tr>
             </table>
+            <label style="margin-left:5%;"><b>Abstract</b></label>
+            <textarea rows="4" cols="128" name="abstract" style="margin-left:10.7%;"></textarea>
             <input style="margin-top:0.5%;"type="submit" name="submit" class="submit_btn">
         </form>
     </div>

@@ -81,6 +81,24 @@
             width:50px;
 			height:35px;
         }
+
+		.hideContent {
+			overflow: hidden;
+			line-height: 1em;
+			height: 2em;
+		}
+
+		.showContent {
+			line-height: 1em;
+			height: auto;
+		}
+		.showContent{
+			height: auto;
+		}
+		.show-more {
+			padding: 10px 0;
+			text-align: center;
+		}
     </style>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,6 +138,8 @@
 			<th>Author</th>
 			<th>Co-author</th>
 			<th>No. of author</th>
+			<th>Department</th>
+			<th>University</th>
 			<th>Role</th>
 			<th>Current Status</th>
 			<th>Link of Article</th>
@@ -154,13 +174,15 @@
 				echo "<td>".$row['page_no']."</td>";
 				echo "<td>".$row['author']."</td>";
 				echo "<td>".$row['co_author']."</td>";	
+				echo "<td>".$row['department']."</td>";
+				echo "<td>".$row['university']."</td>";	
 				echo "<td>".$row['no_of_author']."</td>";
 				echo "<td>".$row['role']."</td>";
 				echo "<td>".$row['current_status']."</td>";
-				echo "<td>".$row['link_article']."</td>";
+				echo "<td>"."<a href=".$row['link_article'].">Link of article</a>"."</td>";
 				echo "<td>".$row['file_article']."</td>";
-				echo "<td>".$row['link_journal']."</td>";	
-				echo "<td>".$row['abstract']."</td>";
+				echo "<td>"."<a href=".$row['link_journal'].">Link of Journal</a>"."</td>";	
+				echo "<td><div class='content hideContent'>".$row['abstract']."<div class='show-more'><a>....</a></div></td>";
 				echo "<td><a href=\"rp_view.php?id=$id&title_article=$title_article\"><button>View</button></a></td>";
 				echo "<td><a href=\"rp_edit.php?id=$row[id]\"><button>Edit</button></a></td>";
 				echo "<td><a href=\"rp_delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button>Delete</button></a></td>";	
@@ -172,16 +194,33 @@
 		</table>
 	</div>
 	<?php 
+		include("db_connect.php");
 		if(isset($_POST['print'])){
-			header("Content-Type: application/xls");    
-			header("Content-Disposition: attachment; filename=research_paper_details.xls");  
-			header("Pragma: no-cache"); 
-			header("Expires: 0");
+			$sql = "SELECT * FROM `research_paper_details`";  
+			$setRec = mysqli_query($conn, $sql);  
+			$columnHeader = '';  
+			// $columnHeader = "Publications" . "\t" . "Index" . "\t" . "Type" . "\t" . "Title of Article" . "\t" . "Journal/Magazine Title" . "\t" . "Impact factor" . "\t" . "Volumne No." . "\t" . "DOI" . "\t" . "Q-factor" . "\t" . "Publication Month" . "\t" . "Publication Year" . "\t" . "Publication Date" . "\t" . "Page No. " . "\t" . "Author" . "\t" . "No. of authors" . "\t" . "Department" . "\t" . "University" . "\t" . "Role" . "\t" . "Current Status" . "\t" . "Link of Article" . "\t" . "File of Article" . "\t" . "Link of Journal" . "\t" . "Abstract" . "\t";  
+			$setData = '';  
+			while ($rec = mysqli_fetch_row($setRec)) {  
+				$rowData = '';  
+				foreach ($rec as $value) {  
+					$value = '"' . $value . '"' . "\t";  
+					$rowData .= $value;  
+				}  
+				$setData .= trim($rowData) . "\n";  
+			}  
+			
+			header("Content-type: application/octet-stream");  
+			header("Content-Disposition: attachment; filename=Research Paper Details.xls");  
+			header("Pragma: no-cache");  
+			header("Expires: 0");  
+
+			echo ucwords($columnHeader) . "\n" . $setData . "\n";  
 		}
 	?>
-	<!-- <form action="" method="POST">
+	<form action="" method="POST">
 		<br><input style="width:150px; height:35px;" type="submit" name="print" value="Download Excel file">
-	</form> -->
+	</form>
 	<hr style="width:100%; height:5px; background-color:black;">
 	<h3>Author Details</h3>
 	<a href="rp_add_authors.php"><button style="width:250px; height:35px;">Add New Authors Data</button></a><br> <br>
@@ -195,6 +234,9 @@
 			$author_sort = $_POST['author_sort'];
 			// unset($_POST['author_sort']); 
 			$sql = "SELECT * FROM author_details where research_paper_name='".$author_sort."'";
+			$result = $conn->query($sql);
+		}else{
+			$sql = "SELECT * FROM author_details";
 			$result = $conn->query($sql);
 		}
 	?>
@@ -231,11 +273,29 @@
 			?>
 		</table>
 		</div>
-	<!-- <script>
+	<script>
 		function download(){
 			
 		}
-	</script> -->
+
+	</script>
+	<script>
+		$(".show-more a").on("click", function() {
+		var $this = $(this); 
+		var $content = $this.parent().prev("div.content");
+		var linkText = $this.text().toUpperCase();    
+		
+		if(linkText === "SHOW MORE"){
+			linkText = "Show less";
+			$content.switchClass("hideContent", "showContent", 100);
+		} else {
+			linkText = "Show more";
+			$content.switchClass("showContent", "hideContent", 100);
+		};
+
+		$this.text(linkText);
+		});
+	</script>
 
 	<!-- <p> Sorting/Searching(year wise,author wise), pdf, excel</p> -->
 </body>

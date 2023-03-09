@@ -26,22 +26,26 @@
     </header>
     <h1>Faculty Accreditation</h1>
     <h2 style="margin-left:45%;">Author Details</h2>
-    <div class="form_container">
+    <div class="form_container" style="width:60%;margin-left:20%;">
         <form method="POST" action="rp_author_input.php">
-            <table class="form_table">
+            <table class="form_table"style="margin-left:15%;">
                 <tr>
                     <th><label>First Name</label></th>
-                    <td><input type="text" name="first_name" class="t_field"></td>
-                    <th><label>Last Name</label></th>
-                    <td><input type="text" name="last_name" class="t_field"></td>
+                    <td><input type="text" name="first_name" class="t_field"><br></td></tr>
+                    <tr><th><label>Last Name</label></th>
+                    <td><input type="text" name="last_name" class="t_field"><br></td></tr>
+                    <tr><th><label>Email</label></th>
+                    <td><input type="text" name="email" class="t_field"><br></td></tr>
+                    <tr><th><label>Research Paper Name</label></th>
+                    <td><input type="text" name="research_paper_name" class="t_field"><br></td></tr>
+                    <tr><th><label>Department</label></th>
+                    <td><input type="text" name="department" class="t_field"><br></td></tr>
+                    <tr><th><label>University</label></th>
+                    <td><input type="text" name="university" class="t_field"><br></td></tr>
+                    <tr><th><label>Country</label></th>
+                    <td><input type="text" name="country" class="t_field"><br></td>
                 </tr>
-                <br>
-                <tr>
-                    <th><label>Email</label></th>
-                    <td><input type="text" name="email" class="t_field"></td>
-                    <th><label>Research Paper Name</label></th>
-                    <td><input type="text" name="research_paper_name" class="t_field"></td>
-                </tr>
+                
             </table>
             <input style="margin-top:0.5%;"type="submit" name="submit" class="submit_btn">
         </form>

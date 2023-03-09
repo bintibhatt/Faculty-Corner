@@ -1,0 +1,49 @@
+
+
+<?php
+    include("db_connect.php");
+    // getting all values from the HTML form
+    if(isset($_POST['submit']))
+    {
+        $publications = $_POST['publications'];
+        $index_rp = $_POST['index_rp'];
+        $type_rp = $_POST['type_rp'];
+        $title_article = $_POST['title_article'];
+        $j_m_title = $_POST['j_m_title'];
+        $impact_factor = $_POST['impact_factor'];
+        $vol_no = $_POST['vol_no'];
+        $doi = $_POST['doi'];
+        $q_factor = $_POST['q_factor'];
+        $publication_month = $_POST['publication_month'];
+        $publication_year = $_POST['publication_year'];
+        $publication_date = $_POST['publication_date'];
+        $pg_no = $_POST['pg_no'];
+        $author = $_POST['author'];
+        $co_author = $_POST['co_author'];
+        $no_of_author = $_POST['no_of_authors'];
+        $department = $_POST['department'];
+        $university = $_POST['university'];
+        $country = $_POST['country'];
+        $role = $_POST['role'];
+        $current_status = $_POST['current_status'];
+        $link_article = $_POST['link_article'];
+        $file_article = $_POST['file_article'];
+        $link_journal = $_POST['link_journal'];
+        $abstract = $_POST['abstract'];
+    }
+
+    // using sql to create a data entry query
+    $sql = "INSERT INTO research_paper_details (publications, index_rp, type_rp , title_article, journal_magazine_title, impact_factor, vol_no, doi, q_factor, publication_month, publication_year, publication_date, page_no, author, co_author, no_of_author, department, university, country, role, current_status, link_article, file_article, link_journal, abstract, status) VALUES ('$publications', '$index_rp', '$type_rp', '$title_article', '$j_m_title', '$impact_factor', '$vol_no', '$doi', '$q_factor', '$publication_month', '$publication_year','$publication_date', '$pg_no', '$author', '$co_author', '$no_of_author', '$department', '$university', '$country' ,'$role', '$current_status', '$link_article', '$file_article', '$link_journal', '$abstract', 1)";
+
+    if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+    echo "<br>";
+    echo "<a href=\"rp_output.php\">View Data</a>";
+    } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+
+?>
+

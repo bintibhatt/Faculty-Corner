@@ -17,23 +17,88 @@
             padding-right: 1%;
         }
 
+        .container{
+            display:flex;
+        }
+
+        .container h1{
+            width:75%;
+        }
+
+        .container a {
+            margin-top:2%;
+            height:25px;    
+        }
+
+        .container button {
+            background-color:DodgerBlue;
+            border-color:DodgerBlue;
+            width:100%;
+            height:25px;   
+            color:white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius:10%; 
+        }
+
         .rp_div{
             background-color: #c9e1f4;
             align-items: flex-start;
-            padding: 10px;
+            padding: 50px;
+            position: center;
+            width: 90%;
+            border: 1px solid;
+            box-sizing: border-box;
+            border-radius: 10px;
+            margin-left: 5%;
+            font-size: 20px;
+            text-align:justify; 
+            line-height: 1.5;
+        }
+
+        .download_btn button{
+            background-color:DodgerBlue;
+            color:white;
+            text-align: center;
+            text-decoration: none;
+            margin-left:2%;
+            font-size: 15px;
+            border-radius:10%;
+            border-color:DodgerBlue;
+        }
+
+        .rp_author{
+            background-color: #c9e1f4;
+            align-items: flex-start;
+            padding: 30px;
             position: center;
             width: 80%;
             border: 1px solid;
             box-sizing: border-box;
-            border-radius: 15px;
+            border-radius: 10px;
             margin-left: 10%;
             font-size: 20px;
         }
 
-        button{
-            margin-top:0.5%;
+        .id_title{
+            text-align: center;
+        }
+
+        .rp_author td,th {
+            padding: 10px;
+            position: center;
+            font-size: 20px;
+        }
+
+        .title{
+            margin-left: 11%;
+        }
+
+        .back_btn button{
+            margin-top:05%;
             margin-left:47%;
-            width:70px;
+            width:50%;
             height:35px;
         }
     </style>
@@ -49,8 +114,8 @@
         <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
     </header>
     <div class="container">
-                <h1 class="title">Faculty Accreditation</h1>
-            </div>
+        <h1 class="title">Faculty Accreditation</h1><a href="rp_output.php"><button class="back_btn">Back</button></a>
+    </div>
 
     <div class="rp_div">
 	<?php 
@@ -61,41 +126,47 @@
     $result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {	
-            echo "<h4>Research Paper Id: ".$row['id']."</h4>";	
-			echo "<b>Publications: </b>".$row['publications']."<br>"."<br>";
-            echo "<b>Index: </b>".$row['index_rp']."<br>"."<br>";
-            echo "<b>Type: </b>".$row['type_rp']."<br>"."<br>";
-            echo "<b>Title of article: </b>".$row['title_article']."<br>"."<br>";
-			echo "<b>Journal/Magazine Title: </b>".$row['journal_magazine_title']."<br>"."<br>";
-			echo "<b>Impact Factor: </b>".$row['impact_factor']."<br>"."<br>";	
-			echo "<b>Volume No.: </b>".$row['vol_no']."<br>"."<br>";
-			echo "<b>DOI: </b>".$row['doi']."<br>"."<br>";
-			echo "<b>Q-factor: </b>".$row['q_factor']."<br>"."<br>";	
-			echo "<b>Publication Month: </b>".$row['publication_month']."<br>"."<br>";
-			echo "<b>Publication Year: </b>".$row['publication_year']."<br>"."<br>";
-			echo "<b>Publication Date: </b>".$row['publication_date']."<br>"."<br>";
-			echo "<b>Page No.: </b>".$row['page_no']."<br>"."<br>";
-			echo "<b>Author: </b>".$row['author']."<br>"."<br>";
-			echo "<b>Co-author: </b>".$row['co_author']."<br>"."<br>";	
-			echo "<b>No. of author(s): </b>".$row['no_of_author']."<br>"."<br>";
-			echo "<b>Role: </b>".$row['role']."<br>"."<br>";
-			echo "<b>Current Status: </b>".$row['current_status']."<br>"."<br>";
-			echo "<b>Link Article: </b>"."<a href=\"$row[link_article]\">$row[link_article]</a>"."<br>"."<br>";
-			echo "<b>File of Article: </b>".$row['file_article']."<br>"."<br>";
-			echo "<b>Link Journal: </b>"."<a href=\"$row[link_journal]\">$row[link_journal]</a>"."<br>"."<br>";	
-			echo "<b>Abstract: </b>".$row['abstract'];
+            // echo "<h4>Research Paper Id: ".$row['id']."</h4>";	
+            echo "<h3 class='id_title'>".$row['title_article']."</h3><br>";
+			echo "<li><b>Publications: </b>&nbsp;&nbsp;".$row['publications']."<br></li>";
+            echo "<li><b>Index: </b>&nbsp;&nbsp;".$row['index_rp']."<br></li>";
+            echo "<li><b>Type: </b>&nbsp;&nbsp;".$row['type_rp']."<br></li>";
+            echo "<li><b>Title of article: </b>&nbsp;&nbsp;".$row['title_article']."<br></li>";
+			echo "<li><b>Journal/Magazine Title: </b>&nbsp;&nbsp;".$row['journal_magazine_title']."<br></li>";
+			echo "<li><b>Impact Factor: </b>&nbsp;&nbsp;".$row['impact_factor']."<br></li>";	
+			echo "<li><b>Volume No.: </b>&nbsp;&nbsp;".$row['vol_no']."<br></li>";
+			echo "<li><b>DOI: </b>&nbsp;&nbsp;".$row['doi']."<br></li>";
+			echo "<li><b>Q-factor: </b>&nbsp;&nbsp;".$row['q_factor']."<br></li>";	
+			echo "<li><b>Publication Month: </b>&nbsp;&nbsp;".$row['publication_month']."<br></li>";
+			echo "<li><b>Publication Year: </b>&nbsp;&nbsp;".$row['publication_year']."<br></li>";
+			echo "<li><b>Publication Date: </b>&nbsp;&nbsp;".$row['publication_date']."<br></li>";
+			echo "<li><b>Page No.: </b>&nbsp;&nbsp;".$row['page_no']."<br></li>";
+			echo "<li><b>Author: </b>&nbsp;&nbsp;".$row['author']."<br></li>";
+			echo "<li><b>Co-author: </b>&nbsp;&nbsp;".$row['co_author']."<br></li>";	
+            echo "<li><b>Department: </b>&nbsp;&nbsp;".$row['department']."<br></li>";
+			echo "<li><b>University: </b>&nbsp;&nbsp;".$row['university']."<br></li>";	
+			echo "<li><b>No. of author(s): </b>&nbsp;&nbsp;".$row['no_of_author']."<br></li>";
+			echo "<li><b>Role: </b>&nbsp;&nbsp;".$row['role']."<br></li>";
+			echo "<li><b>Current Status: </b>&nbsp;&nbsp;".$row['current_status']."<br></li>";
+			echo "<li><b>Link Article: </b>&nbsp;&nbsp;"."<a href=\"$row[link_article]\">$row[link_article]</a>"."<br></li>";
+			echo "<li><b>File of Article: </b>&nbsp;&nbsp;".$row['file_article']."<a class='download_btn' href=\"./pdf/$row[file_article]\"><button>View</button></a>"."<br></li>";
+			echo "<li><b>Link Journal: </b>&nbsp;&nbsp;"."<a href=\"$row[link_journal]\">$row[link_journal]</a>"."<br></li>" ;	
+			echo "<li><b>Abstract: </b>&nbsp;&nbsp;".$row['abstract'];
 		}
 	}
 	?>
     
-</div>
+</div><br>
+<h3 class="title">Author Details</h3><br>
 <div class="rp_author">
     <table>
     <tr bgcolor='#9CC9F6'>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email</th>
-				<th>Research Paper Name</th>
+				<th>Department</th>
+                <th>University</th>
+                <th>Country</th>
 			</tr>
     <?php 
     
@@ -108,13 +179,15 @@
             echo "<tr>";
 			echo "<td>".$row['first_name']."</td>";
 			echo "<td>".$row['last_name']."</td>";
-        	echo "<td>".$row['email']."</td>";	
-			echo "<td>".$row['research_paper_name']."</td>";
+        	echo "<td>"."<a href=mailto:".$row['email'].">".$row['email']."</a>"."</td>";	
+			echo "<td>".$row['department']."</td>";
+            echo "<td>".$row['university']."</td>";
+            echo "<td>".$row['country']."</td>";
 		}
 	}
 	?>
     </table>
 </div>
-<a href="rp_output.php"><button>Back</button></a>
+
 </body>
 </html>

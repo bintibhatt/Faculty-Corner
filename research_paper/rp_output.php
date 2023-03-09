@@ -1,5 +1,12 @@
 <html>
-<head>	
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src=
+"//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+</script>
+<script src=
+"//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js">
+</script>
 	<title>Entries</title>
 	<style>
         body{
@@ -29,8 +36,15 @@
 			overflow-x: auto;
         }
 
-		.rp_div table, td{
-			width:60px;
+		.rp_div table{
+			border: 1px solid black;
+  			border-collapse: collapse;
+			background-color:white;
+			text-align: center;
+		}
+
+		.rp_div td{
+			/* width:60px; */
 			border: 1px solid black;
   			border-collapse: collapse;
 			background-color:white;
@@ -41,6 +55,99 @@
 			border: 1px solid black;
   			border-collapse: collapse;
 			text-align: center;
+		}
+		
+		input{
+			width:250px;
+			background-color: #c9e1f4;
+			border-color: #c9e1f4;
+			border-radius:5px;
+		}
+
+		.container1{
+            display:flex;
+        }
+
+        .container1 form {
+			display:flex;
+            margin-left:64%;   
+        }
+
+        .container1_btn {
+			margin-left:35%;  
+            background-color:DodgerBlue;
+            border-color:DodgerBlue;
+            width:100%;
+            height:30px;   
+            color:white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius:5px; 
+        }
+
+		.container1 .btn{
+			background-color:DodgerBlue;
+            border-color:DodgerBlue;
+            width:15%;
+            height:30px;   
+            color:white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius:5px; 
+		}
+
+		.dd_field {
+			width: 100px;
+			margin-right:1%;
+			border-radius:5px; 
+		}
+
+		.container2{
+            display:flex;
+        }
+
+        .container2 form {
+			display:flex;
+            margin-left:60%;   
+        }
+
+        .container2_btn {
+			margin-left:24%;  
+            background-color:DodgerBlue;
+            border-color:DodgerBlue;
+			width:100%;
+            height:30px;   
+            color:white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius:5px; 
+        }
+
+		.container2 .btn{
+			background-color:DodgerBlue;
+            border-color:DodgerBlue;
+            width:20%;
+            height:30px;   
+            color:white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius:5px; 
+		}
+
+		.exporttoexcel{
+			margin-left:47%;
+			background-color:DodgerBlue;
+            border-color:DodgerBlue;
+            height:30px;   
+            color:white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius:5px; 
 		}
 
 		.rp_author{
@@ -55,7 +162,7 @@
         }
 
 		.rp_author table{
-			width:100%;
+			/* width:100%; */
 			border: 1px solid black;
   			border-collapse: collapse;
 			background-color:white;
@@ -70,7 +177,7 @@
 		}
 
 		.rp_author th{
-			width:25%;
+			width:15%;
 			border: 1px solid black;
   			border-collapse: collapse;
 			text-align: center;
@@ -115,17 +222,68 @@
         <h1 class="title">Faculty Accreditation</h1>
     </div>
 	<h3>Research Paper Details</h3>
-	<a href="research_paper.php"><button style="width:150px; height:35px;">Add New Data</button></a><br/><br/>
+	<div class="container1">
+		<a href="research_paper.php"><button class="container1_btn">Add New Data</button></a>
+		<form method="POST" action="">
+                <select id="publications" name="sort_by" class="dd_field">
+                    <option value="none" selected disabled hidden>Sort by:</option>
+                    <option value="title_article">Title of Article</option>
+                    <option value="publications">Publications</option>
+                    <option value="index_rp">Index</option>
+					<option value="type_rp">Type</option>
+					<option value="journal_magazine_title">Journal/Magazine Title</option>
+                    <option value="impact_factor">Impact Factor</option>
+					<option value="vol_no">Volume No.</option>
+					<option value="doi">DOI</option>
+                    <option value="q_factor">Q-factor</option>
+					<option value="publication_month">Publication Month</option>
+					<option value="publication_year">Publication Year</option>
+					<option value="publication_date">Publication Date</option>
+					<option value="page_no">Page No.</option>
+					<option value="Author">Author</option>
+					<option value="co_author">All Co-author name</option>
+                    <option value="department">Department</option>
+					<option value="university">University</option>
+					<option value="country">Country</option>
+					<option value="role">Role</option>
+				</select>
+			<input type="text" name="rp_sort" placeholder="Search Here">&nbsp;&nbsp;
+			<button class="btn" name="search" type="submit"><i class="fa fa-search"></i></button>
+		</form>
+	</div>
+	<?php 
+		include("db_connect.php");
+		// if(isset($_POST['sort_by'] == null)){
+			if(isset($_POST['sort_by'])){
+				$sort_by = $_POST['sort_by'];
+			}
+			if(isset($_POST['rp_sort']) && $_POST['rp_sort'] == "" ){
+				$sql = "SELECT * FROM research_paper_details";
+				$result = $conn->query($sql);
+			}else if(isset($_POST['rp_sort']))
+			{
+				$rp_sort = $_POST['rp_sort'];
+				$sql = "SELECT * FROM research_paper_details where $sort_by ='".$rp_sort."'";
+				$result = $conn->query($sql);
+				unset($_POST['rp_sort']); 
+			}
+			else{
+				$sql = "SELECT * FROM research_paper_details";
+				$result = $conn->query($sql);
+			}
+		// }
+	?>
+	<!-- <a href="research_paper.php"><button style="width:150px; height:35px;">Add New Data</button></a><br/><br/> -->
 
 	<div class="rp_div">
 		
 		<table id="rp_details_table">
 
 		<tr bgcolor='#9CC9F6'>
+			<th>Title of Article</th>
 			<th>Publications</th>
 			<th>Index</th>
 			<th>Type</th>
-			<th>Title of Article</th>
 			<th>Journal/Magazine Title</th>
 			<th>Impact Factor</th>
 			<th>Volume No.</th>
@@ -145,13 +303,13 @@
 			<th>Link of Article</th>
 			<th>File of Article</th>
 			<th>Link of Journal</th>
-			<th>Abstract</th>
+			<!-- <th>Abstract</th> -->
 		</tr>
 		<?php 
 		
-		include("db_connect.php");
-		$sql = "SELECT * FROM research_paper_details where status='1' ORDER BY id asc ";
-		$result = $conn->query($sql);
+		// include("db_connect.php");
+		// $sql = "SELECT * FROM research_paper_details where status='1' ORDER BY id asc ";
+		// $result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
 		// output data of each row
@@ -159,10 +317,10 @@
 				$id = $row['id'];
 				$title_article = $row['title_article'];
 				echo "<tr>";
+				echo "<td>".$row['title_article']."</td>";
 				echo "<td>".$row['publications']."</td>";
 				echo "<td>".$row['index_rp']."</td>";
-				echo "<td>".$row['type_rp']."</td>";	
-				echo "<td>".$row['title_article']."</td>";
+				echo "<td>".$row['type_rp']."</td>";
 				echo "<td>".$row['journal_magazine_title']."</td>";
 				echo "<td>".$row['impact_factor']."</td>";	
 				echo "<td>".$row['vol_no']."</td>";
@@ -182,9 +340,9 @@
 				echo "<td>"."<a href=".$row['link_article'].">Link of article</a>"."</td>";
 				echo "<td>".$row['file_article']."</td>";
 				echo "<td>"."<a href=".$row['link_journal'].">Link of Journal</a>"."</td>";	
-				echo "<td><div class='content hideContent'>".$row['abstract']."<div class='show-more'><a>....</a></div></td>";
+				// echo "<td>".$row['abstract']."</td>";
 				echo "<td><a href=\"rp_view.php?id=$id&title_article=$title_article\"><button>View</button></a></td>";
-				echo "<td><a href=\"rp_edit.php?id=$row[id]\"><button>Edit</button></a></td>";
+				echo "<td><a href=\"rp_edit.php?id=$row[id]\" onClick=\"return confirm('Record Updated Successfully</br><a href='rp_output.php'>View Updated Record</a>')\"><button>Edit</button></a></td>";
 				echo "<td><a href=\"rp_delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button>Delete</button></a></td>";	
 			}
 		}
@@ -192,40 +350,33 @@
 		
 		?>
 		</table>
-	</div>
-	<?php 
-		include("db_connect.php");
-		if(isset($_POST['print'])){
-			$sql = "SELECT * FROM `research_paper_details`";  
-			$setRec = mysqli_query($conn, $sql);  
-			$columnHeader = '';  
-			// $columnHeader = "Publications" . "\t" . "Index" . "\t" . "Type" . "\t" . "Title of Article" . "\t" . "Journal/Magazine Title" . "\t" . "Impact factor" . "\t" . "Volumne No." . "\t" . "DOI" . "\t" . "Q-factor" . "\t" . "Publication Month" . "\t" . "Publication Year" . "\t" . "Publication Date" . "\t" . "Page No. " . "\t" . "Author" . "\t" . "No. of authors" . "\t" . "Department" . "\t" . "University" . "\t" . "Role" . "\t" . "Current Status" . "\t" . "Link of Article" . "\t" . "File of Article" . "\t" . "Link of Journal" . "\t" . "Abstract" . "\t";  
-			$setData = '';  
-			while ($rec = mysqli_fetch_row($setRec)) {  
-				$rowData = '';  
-				foreach ($rec as $value) {  
-					$value = '"' . $value . '"' . "\t";  
-					$rowData .= $value;  
-				}  
-				$setData .= trim($rowData) . "\n";  
-			}  
-			
-			header("Content-type: application/octet-stream");  
-			header("Content-Disposition: attachment; filename=Research Paper Details.xls");  
-			header("Pragma: no-cache");  
-			header("Expires: 0");  
+	</div><br>
+	<button onclick="exportTableToExcel('rp_details_table')" class="exporttoexcel">Export to Excel</button>
 
-			echo ucwords($columnHeader) . "\n" . $setData . "\n";  
-		}
-	?>
-	<form action="" method="POST">
-		<br><input style="width:150px; height:35px;" type="submit" name="print" value="Download Excel file">
-	</form>
 	<hr style="width:100%; height:5px; background-color:black;">
 	<h3>Author Details</h3>
-	<a href="rp_add_authors.php"><button style="width:250px; height:35px;">Add New Authors Data</button></a><br> <br>
+	<div class="container2">
+		<a href="rp_add_authors.php"><button class="container2_btn">Add New Author's Data</button></a>
+		<form method="POST" action="">
+			<select id="publications" name="author_sort_by" class="dd_field">
+                    <option value="none" selected disabled hidden>Sort by:</option>
+                    <option value="first_name">First Name</option>
+                    <option value="last_name">Last Name</option>
+                    <option value="email">Email</option>
+                    <option value="department">Department</option>
+					<option value="university">University</option>
+					<option value="country">Country</option>
+					<option value="research_paper_name">Research Paper Name</option>
+				</select>
+			<input type="text" name="author_sort" placeholder="Search Here">&nbsp;&nbsp;
+			<button class="btn" name="search" type="submit"><i class="fa fa-search"></i></button>
+		</form>
+	</div>
 	<?php 
-		// include("db_connect.php");	
+		include("db_connect.php");	
+		if(isset($_POST['author_sort_by'])){
+			$author_sort_by = $_POST['author_sort_by'];
+		}
 		if(isset($_POST['author_sort']) && $_POST['author_sort'] == "" ){
 			$sql = "SELECT * FROM author_details";
 			$result = $conn->query($sql);
@@ -233,17 +384,15 @@
 		{
 			$author_sort = $_POST['author_sort'];
 			// unset($_POST['author_sort']); 
-			$sql = "SELECT * FROM author_details where research_paper_name='".$author_sort."'";
+			$sql = "SELECT * FROM author_details where $author_sort_by ='".$author_sort."'";
 			$result = $conn->query($sql);
-		}else{
+		}
+		else{
 			$sql = "SELECT * FROM author_details";
 			$result = $conn->query($sql);
 		}
 	?>
-	<form method="POST" action="">
-		<input type="text" name="author_sort" placeholder="Type author name">
-		<input style="margin-top:0.5%;"type="submit" name="search" class="submit_btn">
-	</form>
+	
 	<div class="rp_author">
 		<table id="rp_authors_table">
 
@@ -252,11 +401,12 @@
 				<th>Last Name</th>
 				<th>Email</th>
 				<th>Research Paper Name</th>
+				<th>Department</th>
+				<th>University</th>
+				<th>Country</th>
 			</tr>
 			
 			<?php
-			// $sql = "SELECT * FROM author_details";
-			// $result = $conn->query($sql);
 				if ($result->num_rows > 0) {
 				// output data of each row
 					while($row = $result->fetch_assoc()) {		
@@ -264,7 +414,10 @@
 						echo "<td>".$row['first_name']."</td>";
 						echo "<td>".$row['last_name']."</td>";
 						echo "<td>".$row['email']."</td>";	
-						echo "<td>".$row['research_paper_name']."</td>";
+						echo "<td>".$row['research_paper_name']."</td>";	
+						echo "<td>".$row['department']."</td>";
+						echo "<td>".$row['university']."</td>";	
+						echo "<td>".$row['country']."</td>";
 						// echo "<td><a href=\"rp_view.php?id=$row[id]\"><button>View</button></a></td>";
 						// echo "<td><a href=\"rp_edit.php?id=$row[id]\"><button>Edit</button></a></td>";
 						// echo "<td><a href=\"rp_delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button>Delete</button></a></td>";	
@@ -273,30 +426,15 @@
 			?>
 		</table>
 		</div>
+
 	<script>
-		function download(){
-			
+		function exportTableToExcel(tableId) {
+			$(document).ready(function () {
+				$("#"+tableId).table2excel({
+					filename: "Research paper details.xls"
+				});
+			});
 		}
-
 	</script>
-	<script>
-		$(".show-more a").on("click", function() {
-		var $this = $(this); 
-		var $content = $this.parent().prev("div.content");
-		var linkText = $this.text().toUpperCase();    
-		
-		if(linkText === "SHOW MORE"){
-			linkText = "Show less";
-			$content.switchClass("hideContent", "showContent", 100);
-		} else {
-			linkText = "Show more";
-			$content.switchClass("showContent", "hideContent", 100);
-		};
-
-		$this.text(linkText);
-		});
-	</script>
-
-	<!-- <p> Sorting/Searching(year wise,author wise), pdf, excel</p> -->
 </body>
 </html>

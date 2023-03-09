@@ -26,28 +26,29 @@
     </header>
     <h1>Faculty Accreditation</h1>
     <h2 style="margin-left:40%;">Research Paper Details</h2>
-    <a href="./rp_output.php" style="margin-left:5%;"><button>Back</button></a>
+    <a href="./rp_output.php"><button class="back_btn">Back</button></a>
+    <br>
     <div class="form_container">
-        <form method="POST" action="rp_input.php">
+        <form method="POST" action="rp_input.php" enctype="multipart/form-data">
             <table class="form_table">
                 <tr>
                     <th><label>Publications</label></th>
                     <td>
                         <select id="publications" name="publications" class="dd_field">
                             <option value="none" selected disabled hidden>Select an Option</option>
-                            <option value="national">National</option>
-                            <option value="international">International</option>
-                            <option value="local">Local</option>
-                            <option value="national/international">National and International</option>
+                            <option value="National">National</option>
+                            <option value="International">International</option>
+                            <option value="Local">Local</option>
+                            <option value="National/International">National and International</option>
                         </select>
                     </td>
                     <th><label>Index</label></th>
                     <td>
                         <select id="index" name="index_rp" class="dd_field">
                             <option value="none" selected disabled hidden>Select an Option</option>
-                            <option value="sci">SCI</option>
-                            <option value="scopus">SCOPUS</option>
-                            <option value="ugc">UGC</option>
+                            <option value="SCI">SCI</option>
+                            <option value="SCOPUS">SCOPUS</option>
+                            <option value="UGC">UGC</option>
                         </select>
                     </td>
                 </tr>
@@ -57,9 +58,9 @@
                     <td>
                         <select id="type_rp" name="type_rp" class="dd_field">
                             <option value="none" selected disabled hidden>Select an Option</option>
-                            <option value="national">Journal</option>
-                            <option value="international">Conference</option>
-                            <option value="local">Book-chapter</option>
+                            <option value="Journal">Journal</option>
+                            <option value="Conference">Conference</option>
+                            <option value="Book-Chapter">Book-chapter</option>
                         </select>
                     </td>
                     <th><label>Title of Article</label></th>
@@ -77,7 +78,7 @@
                     <th><label>Volumne No.</label></th>
                     <td><input type="text" name="vol_no" class="t_field"></td>
                     <th><label>DOI</label></th>
-                    <td><input type="date" name="doi" class="t_field"></td>
+                    <td><input type="text" name="doi" class="t_field"></td>
                 </tr>
 
                 <tr>
@@ -123,11 +124,11 @@
                     <td>
                         <select id="role" name="role" class="dd_field">
                             <option value="none" selected disabled hidden>Select an Option</option>
-                            <option value="p_auth">Principal Author</option>
-                            <option value="c_auth">Corresponding Author</option>
-                            <option value="supervisor">Supervisor</option>
-                            <option value="mentor">Mentor</option>
-                            <option value="other">Other</option>
+                            <option value="Principal author">Principal Author</option>
+                            <option value="Corresponding author">Corresponding Author</option>
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="Mentor">Mentor</option>
+                            <option value="Other">Other</option>
                         </select>
                     </td>
                 </tr>

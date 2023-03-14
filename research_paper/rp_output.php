@@ -1,6 +1,6 @@
 <?php
-
-$id_entered = $_GET['id_entered'];
+	error_reporting(E_ALL & ~E_NOTICE);
+	$id_entered = $_GET['id_entered'];
 
 ?>
 

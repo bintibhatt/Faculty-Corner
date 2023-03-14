@@ -1,3 +1,9 @@
+<?php
+
+$id_entered = $_GET['id_entered'];
+
+?>
+
 <html>
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -258,17 +264,17 @@
 				$sort_by = $_POST['sort_by'];
 			}
 			if(isset($_POST['rp_sort']) && $_POST['rp_sort'] == "" ){
-				$sql = "SELECT * FROM research_paper_details";
+				$sql = "SELECT * FROM research_paper_details WHERE status = '1'";
 				$result = $conn->query($sql);
 			}else if(isset($_POST['rp_sort']))
 			{
 				$rp_sort = $_POST['rp_sort'];
-				$sql = "SELECT * FROM research_paper_details where $sort_by ='".$rp_sort."'";
+				$sql = "SELECT * FROM research_paper_details WHERE $sort_by ='".$rp_sort."' AND status = '1'";
 				$result = $conn->query($sql);
 				unset($_POST['rp_sort']); 
 			}
 			else{
-				$sql = "SELECT * FROM research_paper_details";
+				$sql = "SELECT * FROM research_paper_details WHERE status = '1'";
 				$result = $conn->query($sql);
 			}
 		// }
@@ -316,34 +322,67 @@
 			while($row = $result->fetch_assoc()) {
 				$id = $row['id'];
 				$title_article = $row['title_article'];
-				echo "<tr>";
-				echo "<td>".$row['title_article']."</td>";
-				echo "<td>".$row['publications']."</td>";
-				echo "<td>".$row['index_rp']."</td>";
-				echo "<td>".$row['type_rp']."</td>";
-				echo "<td>".$row['journal_magazine_title']."</td>";
-				echo "<td>".$row['impact_factor']."</td>";	
-				echo "<td>".$row['vol_no']."</td>";
-				echo "<td>".$row['doi']."</td>";
-				echo "<td>".$row['q_factor']."</td>";	
-				echo "<td>".$row['publication_month']."</td>";
-				echo "<td>".$row['publication_year']."</td>";
-				echo "<td>".$row['publication_date']."</td>";
-				echo "<td>".$row['page_no']."</td>";
-				echo "<td>".$row['author']."</td>";
-				echo "<td>".$row['co_author']."</td>";	
-				echo "<td>".$row['department']."</td>";
-				echo "<td>".$row['university']."</td>";	
-				echo "<td>".$row['no_of_author']."</td>";
-				echo "<td>".$row['role']."</td>";
-				echo "<td>".$row['current_status']."</td>";
-				echo "<td>"."<a href=".$row['link_article'].">Link of article</a>"."</td>";
-				echo "<td>".$row['file_article']."</td>";
-				echo "<td>"."<a href=".$row['link_journal'].">Link of Journal</a>"."</td>";	
-				// echo "<td>".$row['abstract']."</td>";
-				echo "<td><a href=\"rp_view.php?id=$id&title_article=$title_article\"><button>View</button></a></td>";
-				echo "<td><a href=\"rp_edit.php?id=$row[id]\" onClick=\"return confirm('Record Updated Successfully</br><a href='rp_output.php'>View Updated Record</a>')\"><button>Edit</button></a></td>";
-				echo "<td><a href=\"rp_delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button>Delete</button></a></td>";	
+				if($id_entered == 1234 )
+				{
+					echo "<tr>";
+					echo "<td>".$row['title_article']."</td>";
+					echo "<td>".$row['publications']."</td>";
+					echo "<td>".$row['index_rp']."</td>";
+					echo "<td>".$row['type_rp']."</td>";
+					echo "<td>".$row['journal_magazine_title']."</td>";
+					echo "<td>".$row['impact_factor']."</td>";	
+					echo "<td>".$row['vol_no']."</td>";
+					echo "<td>".$row['doi']."</td>";
+					echo "<td>".$row['q_factor']."</td>";	
+					echo "<td>".$row['publication_month']."</td>";
+					echo "<td>".$row['publication_year']."</td>";
+					echo "<td>".$row['publication_date']."</td>";
+					echo "<td>".$row['page_no']."</td>";
+					echo "<td>".$row['author']."</td>";
+					echo "<td>".$row['co_author']."</td>";	
+					echo "<td>".$row['department']."</td>";
+					echo "<td>".$row['university']."</td>";	
+					echo "<td>".$row['no_of_author']."</td>";
+					echo "<td>".$row['role']."</td>";
+					echo "<td>".$row['current_status']."</td>";
+					echo "<td>"."<a href=".$row['link_article'].">Link of article</a>"."</td>";
+					echo "<td>".$row['file_article']."</td>";
+					echo "<td>"."<a href=".$row['link_journal'].">Link of Journal</a>"."</td>";	
+					// echo "<td>".$row['abstract']."</td>";
+					echo "<td><a href=\"rp_view.php?id=$id&title_article=$title_article\"><button>View</button></a></td>";
+					echo "<td><a href=\"rp_edit.php?id=$row[id]\" onClick=\"return confirm('Record Updated Successfully</br><a href='rp_output.php'>View Updated Record</a>')\"><button>Edit</button></a></td>";
+					echo "<td><a href=\"rp_delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\"><button>Delete</button></a></td>";
+				}
+				else{
+					echo "<tr>";
+					echo "<td>".$row['title_article']."</td>";
+					echo "<td>".$row['publications']."</td>";
+					echo "<td>".$row['index_rp']."</td>";
+					echo "<td>".$row['type_rp']."</td>";
+					echo "<td>".$row['journal_magazine_title']."</td>";
+					echo "<td>".$row['impact_factor']."</td>";	
+					echo "<td>".$row['vol_no']."</td>";
+					echo "<td>".$row['doi']."</td>";
+					echo "<td>".$row['q_factor']."</td>";	
+					echo "<td>".$row['publication_month']."</td>";
+					echo "<td>".$row['publication_year']."</td>";
+					echo "<td>".$row['publication_date']."</td>";
+					echo "<td>".$row['page_no']."</td>";
+					echo "<td>".$row['author']."</td>";
+					echo "<td>".$row['co_author']."</td>";	
+					echo "<td>".$row['department']."</td>";
+					echo "<td>".$row['university']."</td>";	
+					echo "<td>".$row['no_of_author']."</td>";
+					echo "<td>".$row['role']."</td>";
+					echo "<td>".$row['current_status']."</td>";
+					echo "<td>"."<a href=".$row['link_article'].">Link of article</a>"."</td>";
+					echo "<td>".$row['file_article']."</td>";
+					echo "<td>"."<a href=".$row['link_journal'].">Link of Journal</a>"."</td>";	
+					// echo "<td>".$row['abstract']."</td>";
+					echo "<td><a href=\"rp_view.php?id=$id&title_article=$title_article\"><button>View</button></a></td>";
+					echo "<td><a href=\"rp_edit.php?id=$row[id]\" onClick=\"return confirm('Record Updated Successfully</br><a href='rp_output.php'>View Updated Record</a>')\"><button>Edit</button></a></td>";
+				}
+				
 			}
 		}
 

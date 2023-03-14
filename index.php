@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing page</title>
     <style>
-        <?php include "./css/style.css"; ?>
+        <?php include "./css/index.css"; ?>
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,60 +22,21 @@
         <img class="mulogo_header" src="./images/MU_Logo.png" alt="MU logo">
         <img class="ictlogo_header" src="./images/ICT_logo_text.png" alt="MU logo">
     </header>
-    <div class="menu_mobile"><button class="menu_icon"><i class="fas fa-bars"></i></button></div>
 
     <div class="main_container">
         <div>
             <div class="container">
                 <h1 class="title">Faculty Accreditation</h1>
             </div>
-            <div class="lab_container">
-                <a href="./research_paper/rp_output.php">
-                    <div class="labitem">
-                        <div class="lanimg">
-                            <img src="" alt="Research paper">
-                        </div>
-                        <h2>Research Paper</h2>
-                        <p>All the details about research paper.</p>
-                    </div>
-                </a>
-                <a href="./fulladder_quiz.php">
-                    <div class="labitem">
-                        <div class="lanimg">
-                            <img src="" alt="Training">
-                        </div>
-                        <h2>Training</h2>
-                        <p>All the details about training.</p>
-                    </div>
-                </a>
-                <a href="./halfsubtractor.php">
-                    <div class="labitem">
-                        <div class="lanimg">
-                            <img src="" alt="Certification">
-                        </div>
-                        <h2>Certifications</h2>
-                        <p>All the details about certifications.</p>
-                    </div>
-                </a>
-                <!-- <a href="./fullsubtractor.php">
-                    <div class="labitem">
-                        <div class="lanimg">
-                            <img src="" alt="">
-                        </div>
-                        <h2>Full Subtractor</h2>
-                        <p>Full Subtractor Simulator</p>
-                    </div>
-                </a>
-                <a href="./1bitcomparator.php">
-                    <div class="labitem">
-                        <div class="lanimg">
-                            <img src="" alt="">
-                        </div>
-                        <h2>1 Bit Comparator</h2>
-                        <p>1 Bit Comparator Simulator</p>
-                    </div>
-                </a> -->
-            </div>
+            <form action="./check_id.php" method="post" style="width:30%;margin-left:35%;">
+                <div class="container">
+                    <label for="uname" style="text-alignment:center;"><b>Enter your ID</b></label>
+                    <input type="text" placeholder="_ _ _ _" name="id_entered" maxlength="4" required>
+
+                    <button type="submit" name="login_enter" >Login</button>
+                    
+                </div>
+            </form>
         </div>
     </div>
     

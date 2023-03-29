@@ -42,49 +42,22 @@
             <div class="lab_container">
                 <a href="./research_paper/rp_output.php?id_entered=<?php echo $_GET["id_entered"]?>">
                     <div class="labitem">
-                        <!-- <div class="lanimg">
-                            <img src="" alt="Research paper">
-                        </div> -->
+                        <img style="width:50%;margin-left:25%;"src="./images/research_paper.png" alt="Research Paper">
                         <h2>Research Paper</h2>
-                        <p>All the details about research paper.</p>
                     </div>
                 </a>
-                <!-- <a href="./fulladder_quiz.php">
+                <a href="./faculty_participation/fp_output.php?id_entered=<?php echo $_GET["id_entered"]?>">
                     <div class="labitem">
-                        <div class="lanimg">
-                            <img src="" alt="Training">
-                        </div>
-                        <h2>Training</h2>
-                        <p>All the details about training.</p>
+                        <img style="width:50%;margin-left:25%;"src="./images/faculty_participation.png" alt="Research Paper">
+                        <h2>Faculty Participation</h2>
                     </div>
                 </a>
-                <a href="./halfsubtractor.php">
+                <a href="./ipr_patent/ipr_output.php?id_entered=<?php echo $_GET["id_entered"]?>">
                     <div class="labitem">
-                        <div class="lanimg">
-                            <img src="" alt="Certification">
-                        </div>
-                        <h2>Certifications</h2>
-                        <p>All the details about certifications.</p>
-                    </div>
-                </a> -->
-                <!-- <a href="./fullsubtractor.php">
-                    <div class="labitem">
-                        <div class="lanimg">
-                            <img src="" alt="">
-                        </div>
-                        <h2>Full Subtractor</h2>
-                        <p>Full Subtractor Simulator</p>
+                        <img style="width:50%;margin-left:25%;"src="./images/ipr_patent.png" alt="Research Paper">
+                        <h2>Faculty Participation</h2>
                     </div>
                 </a>
-                <a href="./1bitcomparator.php">
-                    <div class="labitem">
-                        <div class="lanimg">
-                            <img src="" alt="">
-                        </div>
-                        <h2>1 Bit Comparator</h2>
-                        <p>1 Bit Comparator Simulator</p>
-                    </div>
-                </a> -->
             </div>
         </div>
     </div>

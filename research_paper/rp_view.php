@@ -31,8 +31,8 @@
         }
 
         .container button {
-            background-color:DodgerBlue;
-            border-color:DodgerBlue;
+            background-color:#21c8de;
+            border-color:#21c8de;
             width:100%;
             height:25px;   
             color:white;
@@ -58,14 +58,14 @@
         }
 
         .download_btn button{
-            background-color:DodgerBlue;
+            background-color:#21c8de;
             color:white;
             text-align: center;
             text-decoration: none;
             margin-left:2%;
             font-size: 15px;
             border-radius:10%;
-            border-color:DodgerBlue;
+            border-color:#21c8de;
         }
 
         .rp_author{

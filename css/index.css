@@ -1,4 +1,4 @@
-body{
+body {
     font-family: 'Inter';
 }
 
@@ -35,7 +35,7 @@ input[type=text] {
 }
 
 button {
-    background-color: DodgerBlue;
+    background-color: #21c8de;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;

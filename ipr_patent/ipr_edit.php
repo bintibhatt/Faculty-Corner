@@ -1,8 +1,12 @@
 <?php
 session_start();
-    require('db_connect.php');
-    $id=$_REQUEST['id'];
-    $query = "SELECT * from research_paper_details where id='".$id."'"; 
+    include('db_connect.php');
+    if(!isset($_POST['submit']))
+    {
+        $_SESSION['id'] = $_POST['id'];
+    }
+    $id = $_SESSION['id'];
+    $query = "SELECT * from ipr_patent_details where id='".$id."'"; 
     $result = mysqli_query($conn, $query) or die ( mysqli_error());
     $row = mysqli_fetch_assoc($result);
 ?>
@@ -12,7 +16,106 @@ session_start();
     <meta charset="utf-8">
     <title>Update Record</title>
     <style>
-        <?php include "./css/research_paper.css"; ?>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .header_container {
+            width: 100%;
+            display: flex;
+        }
+
+        .mulogo_header {
+            width: 13%;
+            align-content: left;
+        }
+
+        .title {
+            margin-left: 24.3%;
+        }
+
+        .ictlogo_header {
+            width: 15%;
+            float: right;
+            padding-top: 0.5%;
+            padding-right: 1%;
+            margin-left: 24.3%;
+        }
+
+        .form_container {
+            background-color: #c9e1f4;
+            align-items: flex-start;
+            padding: 10px;
+            position: center;
+            width: 90%;
+            height: 85%;
+            border: 1px solid;
+            box-sizing: border-box;
+            border-radius: 5px;
+            margin-left: 5%;
+            font-size: 17px;
+        }
+
+        .dd_field {
+            margin: 5px;
+            width: 358px;
+            height: 40px;
+        }
+
+        .t_field {
+            margin: 5px;
+            width: 350px;
+            height: 35px;
+        }
+
+        .form_table {
+            margin-left: 5%;
+            margin-right: 4%;
+        }
+
+        .form_table td {
+            width: 15%;
+        }
+
+        .form_table th {
+            width: 15%;
+            text-align: left;
+        }
+
+        .submit_btn {
+            margin-left: 50%;
+            width: 100px;
+            height: 40px;
+            background-color: #21c8de;
+            border-color: #21c8de;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius: 5px;
+            margin-bottom: 1%;
+        }
+
+        .back_btn {
+            background-color: #21c8de;
+            border-color: #21c8de;
+            width: 7%;
+            height: 30px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius: 5px;
+            margin-left: 5%;
+            margin-bottom: 1%;
+        }
+
+        input,
+        select,
+        textarea {
+            border-radius: 10px;
+            border-color: white;
+        }
     </style>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,180 +125,115 @@ session_start();
 <body>
     <div class="form">
         <?php
+        // include('db_connect.php');
             $status = "1";
             if(isset($_POST['submit']) && $status==1)
             {
-            $id=$_REQUEST['id'];
-            $publications = $_REQUEST['publications'];
-            $index_rp = $_REQUEST['index_rp'];
-            $type_rp = $_REQUEST['type_rp'];
-            $title_article = $_REQUEST['title_article'];
-            $j_m_title = $_REQUEST['j_m_title'];
-            $impact_factor = $_REQUEST['impact_factor'];
-            $vol_no = $_REQUEST['vol_no'];
-            $doi = $_REQUEST['doi'];
-            $q_factor = $_REQUEST['q_factor'];
-            $publication_month = $_REQUEST['publication_month'];
-            $publication_year = $_REQUEST['publication_year'];
-            $publication_date = $_REQUEST['publication_date'];
-            $pg_no = $_REQUEST['pg_no'];
-            $author_first_name = $_REQUEST['author_first_name'];
-            $author_middle_name = $_REQUEST['author_middle_name'];
-            $author_last_name = $_REQUEST['author_last_name'];
-            $co_author = $_REQUEST['co_author'];
-            $no_of_author = $_REQUEST['no_of_authors'];
-            $department = $_REQUEST['department'];
-            $university = $_REQUEST['university'];
-            $country = $_REQUEST['country'];
-            $role = $_REQUEST['role'];
-            $current_status = $_REQUEST['current_status'];
-            $link_article = $_REQUEST['link_article'];
-            $file_article = $_REQUEST['file_article'];
-            $link_journal = $_REQUEST['link_journal'];
-            $abstract = $_REQUEST['abstract'];
-            // $submittedby = $_SESSION["root"];
-
-            $update="UPDATE research_paper_details SET publications='$publications', index_rp='$index_rp', type_rp='$type_rp' , title_article='$title_article', journal_magazine_title='$j_m_title', impact_factor='$impact_factor', vol_no=$vol_no, doi='$doi', q_factor='$q_factor', publication_month='$publication_month', publication_year=$publication_year, publication_date='$publication_date', page_no=$pg_no, author_first_name='$author_first_name', author_middle_name='$author_middle_name', author_last_name='$author_last_name', co_author='$co_author', no_of_author=$no_of_author, department='$department', university='$university', country='$country', role='$role', current_status='$current_status', link_article='$link_article', file_article='$file_article', link_journal='$link_journal', abstract='$abstract' WHERE id=$id"; 
+                $faculty_id = $_POST['faculty_id'];
+                $first_name = $_POST['first_name'];
+                $middle_name = $_POST['middle_name'];
+                $last_name = $_POST['last_name'];
+                $sr_no = $_POST['sr_no'];
+                $patent_office = $_POST['patent_office'];
+                $ipr_type = $_POST['ipr_type'];
+                $design_no = $_POST['design_no'];
+                $date = $_POST['date'];
+                $team_1 = $_POST['team_1'];
+                $team_2 = $_POST['team_2'];
+                $team_3 = $_POST['team_3'];
+                $club = $_POST['club'];
+                $date_of_issue = $_POST['date_of_issue'];
+                $date_of_renew = $_POST['date_of_renew'];
+                $id1 = $_POST['spe_id'];
+                $update="UPDATE ipr_patent_details SET faculty_id='$faculty_id', first_name='$first_name', middle_name='$middle_name' , last_name='$last_name', sr_no='$sr_no', patent_office='$patent_office', ipr_type='$ipr_type', design_no='$design_no', date='$date', team_1='$team_1', team_2='$team_2', team_3='$team_3', club='$club', date_of_issue='$date_of_issue', date_of_renew='$date_of_renew' WHERE id=$id1"; 
             mysqli_query($conn, $update) or die(mysqli_error());
-            $status = 'Record Updated Successfully'. "</br></br><a href='rp_output.php'>View Updated Record</a>";
+            $status = 'Record Updated Successfully'. "</br></br><a href='ipr_output.php'>View Updated Record</a>";
             echo '<p style="color:#FF0000;">'.$status.'</p>';
         }
         ?>
         <header class="header_container">
             <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
+            <h1 class="title">Faculty Accreditation</h1>
             <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
         </header>
-        <div class="container">
-            <h1 class="title">Faculty Accreditation</h1>
-        </div>
         <h2 style="margin-left:45%;">Update Record</h2>
         <div class="form_container">
         <form method="POST" action="">
             <table class="form_table">
                 <tr>
-                    <th><label>Publications</label></th>
+                    <th><label>Faculty Id</label></th>
+                    <td><input type="text" name="faculty_id" class="t_field" value="<?php echo $row['faculty_id'];?>"></td>
+                    <th><label>First Name</label></th>
+                    <td><input type="text" name="first_name" class="t_field" value="<?php echo $row['first_name'];?>"></td>
+                </tr>
+                
+                <tr>
+                    <th><label>Middle Name</label></th>
+                    <td><input type="text" name="middle_name" class="t_field" value="<?php echo $row['middle_name'];?>"></td>
+                    <th><label>Last Name</label></th>
+                    <td><input type="text" name="last_name" class="t_field" value="<?php echo $row['last_name'];?>"></td>
+                </tr>
+                
+                <tr>
+                    <th><label>Sr. No.</label></th>
+                    <td><input type="text" name="sr_no" class="t_field" value="<?php echo $row['sr_no'];?>"></td>
+                    <th><label>Patent Office</label></th>
                     <td>
-                        <select id="publications" name="publications" class="dd_field">
+                        <select id="patent_office" name="patent_office" class="dd_field">
                             <option value="none" selected disabled hidden>Select an Option</option>
-                            <option value="National">National</option>
-                            <option value="International">International</option>
-                            <option value="Local">Local</option>
-                            <option value="National/International">National and International</option>
-                        </select>
-                    </td>
-                    <th><label>Index</label></th>
-                    <td>
-                        <select id="index" name="index_rp" class="dd_field">
-                            <option value="none" selected disabled hidden>Select an Option</option>
-                            <option value="SCI">SCI</option>
-                            <option value="SCOPUS">SCOPUS</option>
-                            <option value="UGC">UGC</option>
-                        </select>
-                    </td>
-                </tr>
-                <br>
-                <tr>
-                    <th><label>Type</label></th>
-                    <td>
-                        <select id="type_rp" name="type_rp" class="dd_field" >
-                            <option value="none" selected disabled hidden>Select an Option</option>
-                            <option value="Journal">Journal</option>
-                            <option value="Conference">Conference</option>
-                            <option value="Book-Chapter">Book-chapter</option>
-                        </select>
-                    </td>
-                    <th><label>Title of Article</label></th>
-                    <td><input type="text" name="title_article" class="t_field" value="<?php echo $row['title_article'];?>"></td>
-                </tr>
-
-                <tr>
-                    <th><label>Journal/Magazine Name</label></th>
-                    <td><input type="text" name="j_m_title" class="t_field" value="<?php echo $row['journal_magazine_title'];?>"></td>
-                    <th><label>Impact Factor</label></th>
-                    <td><input type="text" name="impact_factor" class="t_field" value="<?php echo $row['impact_factor'];?>"></td>
-                </tr>
-
-                <tr>
-                    <th><label>Volumne No.</label></th>
-                    <td><input type="text" name="vol_no" class="t_field" value="<?php echo $row['vol_no'];?>"></td>
-                    <th><label>DOI</label></th>
-                    <td><input type="text" name="doi" class="t_field" value="<?php echo $row['doi'];?>"></td>
-                </tr>
-
-                <tr>
-                    <th><label>Q Factor</label></th>
-                    <td><input type="text" name="q_factor" class="t_field" value="<?php echo $row['q_factor'];?>"></td>
-                    <th><label>Month of Publication</label></th>
-                    <td><input type="text" name="publication_month" class="t_field" value="<?php echo $row['publication_month'];?>"></td>
-
-                </tr>
-
-                <tr>
-                    <th><label>Year of Publication</label></th>
-                    <td><input type="number" name="publication_year" class="t_field" value="<?php echo $row['publication_year'];?>"></td>
-                    <th><label>Publication Date</label></th>
-                    <td><input type="date" name="publication_date" class="t_field" value="<?php echo $row['publication_date'];?>"></td>
-                </tr>
-
-                <tr>
-                    <th><label>Page No.</label></th>
-                    <td><input type="number" name="pg_no" class="t_field" value="<?php echo $row['page_no'];?>"></td>
-                    <th><label>Author First Name</label></th>
-                    <td><input type="text" name="author_first_name" class="t_field" value="<?php echo $row['author_first_name'];?>"></td>
-                </tr>
-
-                <tr>
-                    <th><label>Author Middle Name</label></th>
-                    <td><input type="text" name="author_middle_name" class="t_field" value="<?php echo $row['author_middle_name'];?>"></td>
-                    <th><label>Author First Name</label></th>
-                    <td><input type="text" name="author_last_name" class="t_field" value="<?php echo $row['author_last_name'];?>"></td>
-                </tr>
-
-                <tr>
-                    <th><label>Co-author (if any)</label></th>
-                    <td><input type="text" name="co_author" class="t_field" value="<?php echo $row['co_author'];?>"></td>
-                    <th><label>Total no of authors</label></th>
-                    <td><input type="text" name="no_of_authors" class="t_field" value="<?php echo $row['no_of_author'];?>"></td>
-                </tr>
-
-                <tr>
-                    <th><label>Department</label></th>
-                    <td><input type="text" name="department" class="t_field" value="<?php echo $row['department'];?>"></td>
-                    <th><label>University</label></th>
-                    <td><input type="text" name="university" class="t_field" value="<?php echo $row['university'];?>"></td>
-                </tr>
-
-                <tr>
-                    <th><label>Country</label></th>
-                    <td><input type="text" name="country" class="t_field" value="<?php echo $row['country'];?>"></td>
-                    <th><label>Your Role</label></th>
-                    <td>
-                        <select id="role" name="role" class="dd_field">
-                            <option value="none" selected disabled hidden>Select an Option</option>
-                            <option value="Principal author">Principal Author</option>
-                            <option value="Corresponding author">Corresponding Author</option>
-                            <option value="Supervisor">Supervisor</option>
-                            <option value="Mentor">Mentor</option>
-                            <option value="Other">Other</option>
+                            <option value="Government of India">Government Of India</option>
                         </select>
                     </td>
                 </tr>
 
                 <tr>
-                    <th><label>Current status of work</label></th>
-                    <td><input type="text" name="current_status" class="t_field" value="<?php echo $row['current_status'];?>"></td>
-                    <th><label>Link of article</label></th>
-                    <td><input type="url" name="link_article" class="t_field" value="<?php echo $row['link_article'];?>"></td>
+                    <th><label>IPR Type</label></th>
+                    <td>
+                        <select id="ipr_type" name="ipr_type" class="dd_field">
+                            <option value="none" selected disabled hidden>Select an Option</option>
+                            <option value="Design Patent">Design Patent</option>
+                            <option value="Utility Patent">Utility Patent</option>
+                            <option value="Ideation Patent">Ideation Patent</option>
+                            <option value="Copyright Patent">Copyright Patent</option>
+                        </select>
+                    </td>
+                    <th><label>Number</label></th>
+                    <td><input type="text" name="number" class="t_field" value="<?php echo $row['number'];?>"></td>
+                </tr>
+
+                <tr>
+                    <th><label>Design No.</label></th>
+                    <td><input type="text" name="design_no" class="t_field" value="<?php echo $row['design_no'];?>"></td>
+                    <th><label>Date</label></th>
+                    <td><input type="date" name="date" class="t_field" value="<?php echo $row['date'];?>"></td>
+                </tr>
+
+                <tr>
+                    <th><label>Team Member 1</label></th>
+                    <td><input type="text" name="team_1" class="t_field" value="<?php echo $row['team_1'];?>"></td>
+                    <th><label>Team Member 2</label></th>
+                    <td><input type="text" name="team_2" class="t_field" value="<?php echo $row['team_2'];?>"></td>
+                </tr>
+
+                <tr>
+                    <th><label>Team Member 3</label></th>
+                    <td><input type="text" name="team_3" class="t_field" value="<?php echo $row['team_3'];?>"></td>
+                    <th><label>Club</label></th>
+                    <td><input type="text" name="club" class="t_field" value="<?php echo $row['club'];?>"></td>
+                </tr>
+
+                <tr>
+                    <th><label>Date of Issue</label></th>
+                    <td><input type="date" name="date_of_issue" class="t_field" value="<?php echo $row['date_of_issue'];?>"></td>
+                    <th><label>Date of Renew</label></th>
+                    <td><input type="date" name="date_of_renew" class="t_field" value="<?php echo $row['date_of_renew'];?>"></td>
                 </tr>
                 <tr>
-                    <th><label>File of article</label></th>
-                    <td><input type="file" name="file_article" class="t_field" value="<?php echo $row['file_article'];?>"></td>
-                    <th><label>Link of journal</label></th>
-                    <td><input type="url" name="link_journal" class="t_field" value="<?php echo $row['link_journal'];?>"></td>
+                    <th><label>Application Form(Pdf)</label></th>
+                    <td><input type="file" name="app_form_file" class="t_field" value="<?php echo $row['app_form_file'];?>"></td>
                 </tr>
             </table>
-            <label style="margin-left:5%;"><b>Abstract</b></label>
-            <textarea rows="4" cols="128" name="abstract" style="margin-left:10.7%;"><?php echo $row['abstract'];?></textarea>
+            <input type="hidden" name="spe_id" value="<?php echo $id; ?>">
             <br>
             <input type="submit" name="submit" class="submit_btn">
         </form>

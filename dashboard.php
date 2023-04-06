@@ -1,13 +1,4 @@
 <?php session_start();
-
-	if(isset($_POST['login_enter']))
-    {
-        // header('Location: dashboard.php');
-        $id_entered = $_POST['id_entered'];
-		// echo $id_entered;
-		// exit(0);
-    }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,19 +31,19 @@
                 <h1 class="title">Faculty Accreditation</h1>
             </div>
             <div class="lab_container">
-                <a href="./research_paper/rp_output.php?id_entered=<?php echo $_GET["id_entered"]?>">
+                <a href="./research_paper/rp_output.php">
                     <div class="labitem">
                         <img style="width:50%;margin-left:25%;"src="./images/research_paper.png" alt="Research Paper">
                         <h2>Research Paper</h2>
                     </div>
                 </a>
-                <a href="./faculty_participation/fp_output.php?id_entered=<?php echo $_GET["id_entered"]?>">
+                <a href="./faculty_participation/fp_output.php">
                     <div class="labitem">
                         <img style="width:50%;margin-left:25%;"src="./images/faculty_participation.png" alt="Research Paper">
                         <h2>Faculty Participation</h2>
                     </div>
                 </a>
-                <a href="./ipr_patent/ipr_output.php?id_entered=<?php echo $_GET["id_entered"]?>">
+                <a href="./ipr_patent/ipr_output.php">
                     <div class="labitem">
                         <img style="width:50%;margin-left:25%;"src="./images/ipr_patent.png" alt="Research Paper">
                         <h2>Faculty Participation</h2>

@@ -2,8 +2,9 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-h1 {
-    align-items: center;
+.header_container {
+    width: 100%;
+    display: flex;
 }
 
 .mulogo_header {
@@ -11,11 +12,16 @@ h1 {
     align-content: left;
 }
 
+.title {
+    margin-left: 24.6%;
+}
+
 .ictlogo_header {
     width: 15%;
     float: right;
     padding-top: 0.5%;
     padding-right: 1%;
+    margin-left: 24.6%;
 }
 
 .form_container {
@@ -62,8 +68,8 @@ h1 {
     margin-left: 50%;
     width: 100px;
     height: 40px;
-    background-color: DodgerBlue;
-    border-color: DodgerBlue;
+    background-color: #21c8de;
+    border-color: #21c8de;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -73,8 +79,8 @@ h1 {
 }
 
 .back_btn {
-    background-color: DodgerBlue;
-    border-color: DodgerBlue;
+    background-color: #21c8de;
+    border-color: #21c8de;
     width: 7%;
     height: 30px;
     color: white;

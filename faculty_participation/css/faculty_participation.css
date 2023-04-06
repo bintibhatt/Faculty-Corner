@@ -62,8 +62,8 @@ h1 {
     margin-left: 50%;
     width: 100px;
     height: 40px;
-    background-color: DodgerBlue;
-    border-color: DodgerBlue;
+    background-color: #21c8de;
+    border-color: #21c8de;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -73,8 +73,8 @@ h1 {
 }
 
 .back_btn {
-    background-color: DodgerBlue;
-    border-color: DodgerBlue;
+    background-color: #21c8de;
+    border-color: #21c8de;
     width: 7%;
     height: 30px;
     color: white;

@@ -124,6 +124,7 @@
                     <td><input type="file" name="event_img[]" class="t_field" multiple="multiple"></td>
                 </tr>
             </table>
+            <p style="margin-left:25%;"><b>Request to enter all the details and if its not available currently, then put "-----" as the value.</b></p>
             <input style="margin-top:0.5%;"type="submit" name="submit" class="submit_btn">
         </form>
     </div>

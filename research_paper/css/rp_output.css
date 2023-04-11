@@ -2,9 +2,18 @@
      font-family: 'Inter', sans-serif;
  }
 
+ .header_container {
+     width: 100%;
+     display: flex;
+ }
+
  .mulogo_header {
      width: 13%;
      align-content: left;
+ }
+
+ .title {
+     margin-left: 24.6%;
  }
 
  .ictlogo_header {
@@ -12,47 +21,41 @@
      float: right;
      padding-top: 0.5%;
      padding-right: 1%;
+     margin-left: 24.6%;
  }
 
- .rp_div {
+ .main_div {
      width: 95%;
      margin-left: 2.5%;
-     background-color: #c9e1f4;
-     padding: 30px;
-     border: 1px solid;
-     box-sizing: border-box;
-     border-radius: 5px;
-     font-size: 20px;
      overflow-x: auto;
  }
 
- .rp_div table {
-     border: 1px solid black;
-     border-collapse: collapse;
-     background-color: white;
-     text-align: center;
+ .author_div {
+     width: 95%;
+     margin-left: 2.5%;
+     overflow-x: auto;
  }
 
- .rp_div td {
-     /* width:60px; */
-     border: 1px solid black;
-     border-collapse: collapse;
-     background-color: white;
-     text-align: center;
+ .dataTables_filter {
+     margin-bottom: 1%;
  }
 
- .rp_div th {
-     border: 1px solid black;
-     border-collapse: collapse;
+ button {
+     background-color: #21c8de;
+     border-color: #21c8de;
+     height: 30px;
      text-align: center;
- }
-
- input {
-     width: 250px;
-     background-color: #c9e1f4;
-     border-color: #c9e1f4;
+     text-decoration: none;
+     font-size: 15px;
      border-radius: 5px;
  }
+
+ /* input {
+     width: 250px;
+     background-color: #a6e9f2;
+     border-color: #a6e9f2;
+     border-radius: 5px;
+ } */
 
  .container1 {
      display: flex;

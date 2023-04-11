@@ -5,9 +5,24 @@
         body{
             font-family: 'Inter', sans-serif;
         }
+        
+        .header_container{
+            width: 100%;
+            display:flex;
+        }
+
+        a{
+            color:black;
+            text-decoration: none;
+        }
+
         .mulogo_header {
             width: 13%;
             align-content: left;
+        }
+
+        .title{
+            margin-left: 24%;
         }
 
         .ictlogo_header {
@@ -15,35 +30,23 @@
             float: right;
             padding-top: 0.5%;
             padding-right: 1%;
+            margin-left: 24.3%;
         }
 
-        .container{
-            display:flex;
-        }
-
-        .container h1{
-            width:75%;
-        }
-
-        .container a {
-            margin-top:2%;
-            height:25px;    
-        }
 
         .container button {
             background-color:#21c8de;
             border-color:#21c8de;
-            width:100%;
-            height:25px;   
-            color:white;
-            text-align: center;
-            text-decoration: none;
-            font-size: 15px;
-            border-radius:10%; 
+            margin-top:1%;
+            margin-left:85%;
+            margin-bottom:1%;
+            width:10%;
+            height:35px;
+            border-radius:10px; 
         }
 
         .rp_div{
-            background-color: #c9e1f4;
+            background-color: #c9e9f4;
             align-items: flex-start;
             padding: 50px;
             position: center;
@@ -59,7 +62,6 @@
 
         .download_btn button{
             background-color:#21c8de;
-            color:white;
             text-align: center;
             text-decoration: none;
             margin-left:2%;
@@ -90,11 +92,6 @@
             position: center;
             font-size: 20px;
         }
-
-        .title{
-            margin-left: 11%;
-        }
-
         .back_btn button{
             margin-top:05%;
             margin-left:47%;
@@ -111,10 +108,11 @@
 <body>
     <header class="header_container">
         <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
+        <h1 class="title">Faculty Accreditation</h1>
         <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
     </header>
     <div class="container">
-        <h1 class="title">Faculty Accreditation</h1><a href="fp_output.php"><button class="back_btn">Back</button></a>
+        <a href="fp_output.php"><button class="back_btn">Back</button></a>
     </div>
 
     <div class="rp_div">

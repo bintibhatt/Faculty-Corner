@@ -16,13 +16,12 @@ session_start();
     <meta charset="utf-8">
     <title>Update Record</title>
     <style>
-        body {
+        body{
             font-family: 'Inter', sans-serif;
         }
-
-        .header_container {
+        .header_container{
             width: 100%;
-            display: flex;
+            display:flex;
         }
 
         .mulogo_header {
@@ -30,7 +29,7 @@ session_start();
             align-content: left;
         }
 
-        .title {
+        .title{
             margin-left: 24.3%;
         }
 
@@ -42,8 +41,20 @@ session_start();
             margin-left: 24.3%;
         }
 
+
+        .container button {
+            background-color:#21c8de;
+            border-color:#21c8de;
+            margin-top:1%;
+            margin-left:85%;
+            margin-bottom:1%;
+            width:10%;
+            height:35px;
+            border-radius:10px; 
+        }
+
         .form_container {
-            background-color: #c9e1f4;
+            background-color: #c9e9f4;
             align-items: flex-start;
             padding: 10px;
             position: center;
@@ -88,7 +99,6 @@ session_start();
             height: 40px;
             background-color: #21c8de;
             border-color: #21c8de;
-            color: white;
             text-align: center;
             text-decoration: none;
             font-size: 15px;
@@ -101,7 +111,6 @@ session_start();
             border-color: #21c8de;
             width: 7%;
             height: 30px;
-            color: white;
             text-align: center;
             text-decoration: none;
             font-size: 15px;
@@ -123,6 +132,7 @@ session_start();
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 <body>
+    
     <div class="form">
         <?php
         // include('db_connect.php');
@@ -157,8 +167,13 @@ session_start();
             <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
         </header>
         <h2 style="margin-left:45%;">Update Record</h2>
+        <div class="container">
+        <a href="ipr_output.php"><button class="back_btn">Back</button></a>
+    </div>
         <div class="form_container">
         <form method="POST" action="">
+            <p style="text-align:center; font-size:80%;"><b>Please ensure that all details are entered, and if certain information is currently unavailable, please use "-----" as the placeholder value. Also, kindly ensure that all dropdown menus are filled.</b></p>
+            <br>
             <table class="form_table">
                 <tr>
                     <th><label>Faculty Id</label></th>

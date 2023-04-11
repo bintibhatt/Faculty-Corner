@@ -14,12 +14,13 @@
 
 <body>
     <header class="header_container">
-        <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
-        <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
-    </header>
-    <h1>Faculty Accreditation</h1>
-    <h2 style="margin-left:40%;">Research Paper Details</h2>
-    <a href="./rp_output.php"><button class="back_btn">Back</button></a>
+            <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
+            <h1 class="title">Faculty Accreditation</h1>
+            <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
+        </header>
+        <h2 style="margin-left:37%;">Research Paper Details Entry</h2>
+        <div class="container">
+        <a href="rp_output.php"><button class="back_btn">Back</button></a>
     <br>
     <div class="form_container">
         <form method="POST" action="rp_input.php" enctype="multipart/form-data">

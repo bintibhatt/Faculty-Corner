@@ -46,7 +46,7 @@
                 <a href="./ipr_patent/ipr_output.php">
                     <div class="labitem">
                         <img style="width:50%;margin-left:25%;"src="./images/ipr_patent.png" alt="Research Paper">
-                        <h2>Faculty Participation</h2>
+                        <h2>IPR Patent</h2>
                     </div>
                 </a>
             </div>

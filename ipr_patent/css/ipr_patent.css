@@ -8,7 +8,7 @@ body {
 }
 
 .mulogo_header {
-    width: 13%;
+    /* width: 13%; */
     align-content: left;
 }
 
@@ -17,7 +17,7 @@ body {
 }
 
 .ictlogo_header {
-    width: 15%;
+    /* width: 10%; */
     float: right;
     padding-top: 0.5%;
     padding-right: 1%;

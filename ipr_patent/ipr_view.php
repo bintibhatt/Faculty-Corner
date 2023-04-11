@@ -39,13 +39,12 @@ session_start();
             margin-left:85%;
             margin-bottom:1%;
             width:10%;
-            height:35px;   
-            color:white;
+            height:35px;
             border-radius:10px; 
         }
 
         .rp_div{
-            background-color: #c9e1f4;
+            background-color: #c9e9f4;
             align-items: flex-start;
             padding: 50px;
             position: center;
@@ -61,7 +60,6 @@ session_start();
 
         .download_btn button{
             background-color:#21c8de;
-            color:white;
             text-align: center;
             text-decoration: none;
             margin-left:2%;

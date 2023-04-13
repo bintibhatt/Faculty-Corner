@@ -6,21 +6,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Participation Details Entry</title>
+    <title>Faculty Participation</title>
     <style>
         <?php include "./css/faculty_participation.css"; ?>
     </style>
 </head>
 
 <body>
-    <header class="header_container" style="display:flex;">
-        <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo" style="margin-right:24%;">
-        <h1 style="margin-right:25%;">Faculty Accreditation</h1>
-        <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
-    </header>
-    <h2 style="margin-left:40%;">Faculty Participation Details</h2>
-    <a href="./fp_output.php"><button class="back_btn">Back</button></a>
-    <br>
+    <header class="header_container">
+            <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
+            <h1 class="title">Faculty Corner</h1>
+            <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
+        </header>
+        <h2 style="margin-left:37%;">Faculty Participation Details Entry</h2>
+        <div class="container">
+        <a href="fp_output.php"><button class="back_btn">Back</button></a></div>
     <div class="form_container">
         <form method="POST" action="fp_input.php" enctype="multipart/form-data">
             <table class="form_table">
@@ -40,7 +40,7 @@
 
                 <tr>
                     <th><label>Employee Id</label></th>
-                    <td><input type="number" name="emp_id" class="t_field"></td>
+                    <td><input type="number" name="emp_id" class="t_field" onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;"></td>
                     <th><label>Event</label></th>
                     <td>
                         <select id="event" name="event" class="dd_field">
@@ -124,7 +124,7 @@
                     <td><input type="file" name="event_img[]" class="t_field" multiple="multiple"></td>
                 </tr>
             </table>
-            <p style="margin-left:25%;"><b>Request to enter all the details and if its not available currently, then put "-----" as the value.</b></p>
+            <p style="margin-left:5%; font-size:15px;"><b>Request to enter all the details and if its not available currently, then put "-" as the value. Also you can select multiple files from one option by selecting them altogether.</b></p>
             <input style="margin-top:0.5%;"type="submit" name="submit" class="submit_btn">
         </form>
     </div>

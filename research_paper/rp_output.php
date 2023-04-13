@@ -7,7 +7,7 @@ session_start();
     <style>
         <?php include 'css/rp_output.css'; ?>
     </style>
-    <title>Research Paper Details</title>
+    <title>Research Paper</title>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,100&display=swap" rel="stylesheet">
@@ -15,10 +15,10 @@ session_start();
 <body>
     <header class="header_container">
         <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
-        <h1 class="title">Faculty Accreditation</h1>
+        <h1 class="title">Faculty Corner</h1>
         <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
     </header>
-    <a href="../dashboard.php" style="margin-left:2.5%;"><button>Home</button></a><br><br>
+    <a href="../dashboard.php" style="margin-left:0%;"><button>Home</button></a><br><br>
 
     <div class="nav_div" style="background-color:lightblue;">
 	    <h2 style="margin-left:40%;">Research Paper Details</h2>
@@ -29,6 +29,7 @@ session_start();
     <table id="details_table" class="display"  cellspacing="0">
         <thead>
             <tr bgcolor='#21c8de'>
+			<th>Sr. No.</th>
 			<th>Title of Article</th>
 			<th>Publications</th>
             <th>Index</th>
@@ -71,69 +72,96 @@ session_start();
             .done(function( response ) {
                 session_id = response;
             });
-    $(document).ready(function() {
-        $('#details_table').dataTable({
-            scrollX: true,
-            "processing": true,
-            "ajax": "rp_datatable_fetch.php",
-
-            // var id = table.row(this).data.id;
-
-            "columns": [
-                {data: 'title_article'},
-                {data: 'publications'},
-                {data: 'index_rp'},
-                {data: 'type_rp'},
-                {data: 'journal_magazine_title'},
-                {data: 'impact_factor'},
-                {data: 'vol_no'},
-                {data: 'doi'},
-                {data: 'q_factor'},
-                {data: 'publication_month'},
-                {data: 'publication_year'},
-                {data: 'publication_date'},
-                {data: 'page_no'},
-                {data: 'author_first_name'},
-                {data: 'author_middle_name'},
-                {data: 'author_last_name'},
-                {data: 'department'},
-                {data: 'university'},
-                {data: 'country'},
-                {data: 'role'},
-                {data: 'co_author'},
-                {data: 'no_of_author'},
-                {data: 'current_status'},
-                {data: 'link_article'},
-                {data: 'link_journal'},
-                {
-                    data: 'id',
-                    title: 'title_article',
-                    // data: 'title_article'
-                    render : function(data, title, type, row) {
-                        if(session_id == "1327"){
-                            return '<td><form action="rp_view.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><textarea  class="ved" style="width:30px;" name="title" hidden>'+type.title_article+'</textarea><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="View"></form></td><td><form action="rp_edit.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Edit"></form></td> <td><form action="rp_delete.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Delete"></form></td>';
+        $(document).ready(function() {
+            $('#details_table').dataTable({
+                scrollX: true,
+                // "autoWidth": false,
+                "processing": true,
+                "ajax": "rp_datatable_fetch.php",
+                "columns": [
+                    {data: 'id'},
+                    {data: 'title_article'},
+                    {data: 'publications'},
+                    {data: 'index_rp'},
+                    {data: 'type_rp'},
+                    {data: 'journal_magazine_title'},
+                    {data: 'impact_factor'},
+                    {data: 'vol_no'},
+                    {data: 'doi'},
+                    {data: 'q_factor'},
+                    {data: 'publication_month'},
+                    {data: 'publication_year'},
+                    {data: 'publication_date'},
+                    {data: 'page_no'},
+                    {data: 'author_first_name'},
+                    {data: 'author_middle_name'},
+                    {data: 'author_last_name'},
+                    {data: 'department'},
+                    {data: 'university'},
+                    {data: 'country'},
+                    {data: 'role'},
+                    {data: 'co_author'},
+                    {data: 'no_of_author'},
+                    {data: 'current_status'},
+                    {data: 'link_article',
+                        "render": function(data, type, row) {
+                            if (type === 'display') {
+                                return '<a href="' + data + '">' + data + '</a>';
+                            }
+                            return data;
                         }
-                        else{
-                            return '<td><form action="rp_view.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><textarea  class="ved" style="width:30px;" name="title" hidden>'+type.title_article+'</textarea><input type="submit" value="View"></form></td>';
+                    },
+                    {data: 'link_journal',
+                        "render": function(data, type, row) {
+                            if (type === 'display') {
+                                return '<a href="' + data + '">' + data + '</a>';
+                            }
+                            return data;
                         }
-                        
-                        
+                    },
+                    {
+                        data: 'id',
+                        title: 'title_article',
+                        // data: 'title_article'
+                        render : function(data, title, type, row) {
+                            if(session_id == "1327"){
+                                return '<td><form action="rp_view.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><textarea   style="width:30px;" name="title" hidden>'+type.title_article+'</textarea><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="View"></form></td><td><form action="rp_edit.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Edit"></form></td> <td><form action="rp_delete.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Delete"></form></td>';
+                            }
+                            else{
+                                return '<td><form action="rp_view.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><textarea   style="width:30px;" name="title" hidden>'+type.title_article+'</textarea><input type="submit" value="View"></form></td>';
+                            }
+                            
+                            
+                        }
                     }
-                }
-            ],
-            dom: 'Bfrtip',
-            lengthMenu: [
-            [ 5, 10, 25, 50],
-            [ '5 Files', '10 Files', '25 Files', '50 Files' ]
-            ],
-            buttons: [
-            { extend: 'copy', text: 'Copy' },
-            { extend: 'print', text: 'Print'},
-            { extend: 'excel', text: 'Export to Excel', filename:'IPR Patent Details' },
-            'pageLength'
-            ],
+                ],
+                "columnDefs": [
+                    {
+                        "targets": 1,
+                        "width": "250px"
+                    },
+                    {
+                        "targets": 21,
+                        "width": "300px"
+                    },
+                    // {
+                    //     "targets": 24,
+                    //     "width": "10px"
+                    // },
+                ],
+                dom: 'Bfrtip',
+                lengthMenu: [
+                [ 5, 10, 25, 50],
+                [ '5 Files', '10 Files', '25 Files', '50 Files' ]
+                ],
+                buttons: [
+                { extend: 'copy', text: 'Copy' },
+                { extend: 'print', text: 'Print'},
+                { extend: 'excel', text: 'Export to Excel', filename:'Research Paper Details' },
+                'pageLength'
+                ],
+            });
         });
-    });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -202,9 +230,6 @@ session_start();
             [ '5 Files', '10 Files', '25 Files', '50 Files' ]
             ],
             buttons: [
-            { extend: 'copy', text: 'Copy' },
-            { extend: 'print', text: 'Print'},
-            { extend: 'excel', text: 'Export to Excel', filename:'IPR Patent Details' },
             'pageLength'
             ],
         });

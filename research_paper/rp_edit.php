@@ -1,6 +1,6 @@
 <?php
 session_start();
-    include('db_connect.php');
+    include('../db_connect.php');
     if(!isset($_POST['submit']))
     {
         $_SESSION['id'] = $_POST['id'];
@@ -14,7 +14,7 @@ session_start();
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Update Record</title>
+    <title>Research Paper</title>
     <style>
         body{
             font-family: 'Inter', sans-serif;
@@ -175,7 +175,7 @@ session_start();
         ?>
         <header class="header_container">
             <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
-            <h1 class="title">Faculty Accreditation</h1>
+            <h1 class="title">Faculty Corner</h1>
             <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
         </header>
         <h2 style="margin-left:45%;">Update Record</h2>
@@ -183,7 +183,7 @@ session_start();
         <a href="rp_output.php"><button class="back_btn">Back</button></a>
         <div class="form_container">
         <form method="POST" action="">
-            <p style="text-align:center; font-size:80%;"><b>Please ensure that all details are entered, and if certain information is currently unavailable, please use "-----" as the placeholder value. Also, kindly ensure that all dropdown menus are filled.</b></p>
+            <p style="text-align:center; font-size:80%;"><b>Please ensure that all details are entered, and if certain information is currently unavailable, please use "-" as the placeholder value. Also, kindly ensure that all dropdown menus are filled.</b></p>
             <table class="form_table">
                 <tr>
                     <th><label>Publications</label></th>

@@ -1,5 +1,5 @@
 <?php
-    include("db_connect.php");
+    include("../db_connect.php");
     // getting all values from the HTML form
     if(isset($_POST['submit']))
     {

@@ -13,7 +13,7 @@ body {
 }
 
 .title {
-    margin-left: 24.3%;
+    margin-left: 27.5%;
 }
 
 .ictlogo_header {
@@ -21,7 +21,7 @@ body {
     float: right;
     padding-top: 0.5%;
     padding-right: 1%;
-    margin-left: 24.3%;
+    margin-left: 27.5%;
 }
 
 
@@ -154,7 +154,7 @@ div.dataTables_wrapper {
 }
 
 .submit_btn {
-    margin-left: 50%;
+    margin-left: 45%;
     width: 100px;
     height: 40px;
     background-color: #21c8de;

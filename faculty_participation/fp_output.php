@@ -7,7 +7,7 @@ session_start();
     <style>
         <?php include 'css/fp_output.css'; ?>
     </style>
-    <title>Research Paper Details</title>
+    <title>Faculty Participation</title>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,100&display=swap" rel="stylesheet">
@@ -15,10 +15,10 @@ session_start();
 <body>
     <header class="header_container">
         <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
-        <h1 class="title">Faculty Accreditation</h1>
+        <h1 class="title">Faculty Corner</h1>
         <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
     </header>
-    <a href="../dashboard.php" style="margin-left:2.5%;"><button>Home</button></a><br><br>
+    <a href="../dashboard.php" style="margin-left:0%;"><button>Home</button></a><br><br>
 
     <div class="nav_div" style="background-color:lightblue;">
 	    <h2 style="margin-left:40%;">Faculty Participation Details</h2>
@@ -97,10 +97,10 @@ session_start();
                     // data: 'title_article'
                     render : function(data, title, type, row) {
                         if(session_id == "1327"){
-                            return '<td><form action="fp_view.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="View"></form></td><td><form action="fp_edit.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Edit"></form></td> <td><form action="fp_delete.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Delete"></form></td>';
+                            return '<td><form action="fp_view.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="View"></form></td><td><form action="fp_edit.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Edit"></form></td> <td><form action="fp_delete.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Delete"></form></td>';
                         }
                         else{
-                            return '<td><form action="fp_view.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="View"></form></td>';
+                            return '<td><form action="fp_view.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="View"></form></td>';
                         }
                         
                         

@@ -1,16 +1,9 @@
 <?php
-// db settings
-$hostname = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'faculty_acc';
-
-// db connection
-$con = mysqli_connect($hostname, $username, $password, $database) or die("Error " . mysqli_error($con));
+include("../db_connect.php"); 
 
 // fetch records
 $sql = "SELECT * FROM ipr_patent_details WHERE status = '1'";
-$result = mysqli_query($con, $sql);
+$result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_assoc($result)) {
     $array[] = $row;

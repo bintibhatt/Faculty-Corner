@@ -27,7 +27,7 @@
     <div class="main_container">
         <div>
             <div class="container">
-                <h1 class="title">Faculty Accreditation</h1>
+                <h1 class="title">Faculty Corner</h1>
             </div>
             <form action="./check_id.php" method="post" style="width:30%;margin-left:35%;">
                 <div class="container">

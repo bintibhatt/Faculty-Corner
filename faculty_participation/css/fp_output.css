@@ -1,28 +1,28 @@
- body {
-     font-family: 'Inter', sans-serif;
- }
+body {
+    font-family: 'Inter', sans-serif;
+}
 
- .header_container {
-     width: 100%;
-     display: flex;
- }
+.header_container {
+    width: 100%;
+    display: flex;
+}
 
- .mulogo_header {
-     width: 13%;
-     align-content: left;
- }
+.mulogo_header {
+    width: 13%;
+    align-content: left;
+}
 
- .title {
-     margin-left: 24.6%;
- }
+.title {
+    margin-left: 27.5%;
+}
 
- .ictlogo_header {
-     width: 15%;
-     float: right;
-     padding-top: 0.5%;
-     padding-right: 1%;
-     margin-left: 24.6%;
- }
+.ictlogo_header {
+    width: 15%;
+    float: right;
+    padding-top: 0.5%;
+    padding-right: 1%;
+    margin-left: 27.5%;
+}
 
  .main_div {
      width: 95%;

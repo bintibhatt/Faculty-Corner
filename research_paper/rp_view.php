@@ -3,7 +3,7 @@ session_start();
 ?>
 <html>
 <head>	
-	<title>Research Paper View</title>
+	<title>Research Paper</title>
 	<style>
         body{
             font-family: 'Inter', sans-serif;
@@ -16,7 +16,6 @@ session_start();
 
         a{
             color:black;
-            text-decoration: none;
         }
 
         .mulogo_header {
@@ -112,7 +111,7 @@ session_start();
 <body>
     <header class="header_container">
         <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
-        <h1 class="title">Faculty Accreditation</h1>
+        <h1 class="title">Faculty Corner</h1>
         <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
     </header>
     <div class="container">
@@ -122,7 +121,7 @@ session_start();
     <div class="rp_div">
 	<?php 
     
-	include("db_connect.php");
+	include("../db_connect.php");
     $id = $_POST['id'];
     $sql = "SELECT * FROM research_paper_details WHERE id='".$id."'";
     $result = $conn->query($sql);
@@ -173,7 +172,7 @@ session_start();
 			</tr>
     <?php 
     
-	include("db_connect.php");
+	include("../db_connect.php");
     $id = $_POST['id'];
     $rp_name=$_POST['title'];
     $sql = "SELECT * FROM author_details WHERE research_paper_name='".$rp_name."'";

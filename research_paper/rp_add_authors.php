@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Paper Details Entry</title>
+    <title>Research Paper Author</title>
     <style>
         <?php include "./css/research_paper.css"; ?>
     </style>
@@ -22,10 +22,12 @@
 <body>
     <header class="header_container">
         <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
+        <h1 class="title">Faculty Corner</h1>
         <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
     </header>
-    <h1>Faculty Accreditation</h1>
     <h2 style="margin-left:45%;">Author Details</h2>
+    <div class="container">
+        <a href="rp_output.php"><button class="back_btn" style="margin-left:70%;">Back</button></a></div>
     <div class="form_container" style="width:60%;margin-left:20%;">
         <form method="POST" action="rp_author_input.php">
             <table class="form_table"style="margin-left:15%;">

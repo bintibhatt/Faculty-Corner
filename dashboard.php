@@ -23,28 +23,27 @@
         <img class="mulogo_header" src="./images/MU_Logo.png" alt="MU logo">
         <img class="ictlogo_header" src="./images/ICT_logo_text.png" alt="MU logo">
     </header>
-    <div class="menu_mobile"><button class="menu_icon"><i class="fas fa-bars"></i></button></div>
 
     <div class="main_container">
         <div>
             <div class="container">
-                <h1 class="title">Faculty Accreditation</h1>
+                <h1 class="title">Faculty Corner</h1>
             </div>
-            <div class="lab_container">
+            <div class="dashboard_container">
                 <a href="./research_paper/rp_output.php">
-                    <div class="labitem">
+                    <div class="dashboard_img">
                         <img style="width:50%;margin-left:25%;"src="./images/research_paper.png" alt="Research Paper">
                         <h2>Research Paper</h2>
                     </div>
                 </a>
                 <a href="./faculty_participation/fp_output.php">
-                    <div class="labitem">
+                    <div class="dashboard_img">
                         <img style="width:50%;margin-left:25%;"src="./images/faculty_participation.png" alt="Research Paper">
                         <h2>Faculty Participation</h2>
                     </div>
                 </a>
                 <a href="./ipr_patent/ipr_output.php">
-                    <div class="labitem">
+                    <div class="dashboard_img">
                         <img style="width:50%;margin-left:25%;"src="./images/ipr_patent.png" alt="Research Paper">
                         <h2>IPR Patent</h2>
                     </div>

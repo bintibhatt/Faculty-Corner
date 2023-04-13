@@ -1,5 +1,5 @@
 <?php
-    include("db_connect.php");
+    include("../db_connect.php");
     // getting all values from the HTML form
     if(isset($_POST['submit']))
     {
@@ -10,6 +10,7 @@
         $sr_no = $_POST['sr_no'];
         $patent_office = $_POST['patent_office'];
         $ipr_type = $_POST['ipr_type'];
+        $number = $_POST['number'];
         $design_no = $_POST['design_no'];
         $date = $_POST['date'];
         $team_1 = $_POST['team_1'];
@@ -26,8 +27,8 @@
  
           move_uploaded_file($file_tmp,"./pdf/".$app_form_file);
  
-          $insertquery ="INSERT INTO ipr_patent_details (faculty_id, first_name, middle_name, last_name, sr_no, patent_office, ipr_type, design_no, date, team_1, team_2, team_3, club, date_of_issue, date_of_renew, app_form_file, status)
-          VALUES ('$faculty_id', '$first_name', '$middle_name', '$last_name', '$sr_no', '$patent_office', '$ipr_type', '$design_no', '$date', '$team_1', '$team_2', '$team_3', '$club', '$date_of_issue', '$date_of_renew', '$app_form_file',1)";
+          $insertquery ="INSERT INTO ipr_patent_details (faculty_id, first_name, middle_name, last_name, sr_no, patent_office, ipr_type, number, design_no, date, team_1, team_2, team_3, club, date_of_issue, date_of_renew, app_form_file, status)
+          VALUES ('$faculty_id', '$first_name', '$middle_name', '$last_name', '$sr_no', '$patent_office', '$ipr_type', $number, '$design_no', '$date', '$team_1', '$team_2', '$team_3', '$club', '$date_of_issue', '$date_of_renew', '$app_form_file',1)";
 
           // $iquery = mysqli_query($conn, $insertquery);
             if ($conn->query($insertquery) === TRUE) {

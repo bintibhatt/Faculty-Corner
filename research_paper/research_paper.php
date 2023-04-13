@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Paper Details Entry</title>
+    <title>Research Paper</title>
     <style>
         <?php include "./css/research_paper.css"; ?>
     </style>
@@ -15,13 +15,12 @@
 <body>
     <header class="header_container">
             <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
-            <h1 class="title">Faculty Accreditation</h1>
+            <h1 class="title">Faculty Corner</h1>
             <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
         </header>
         <h2 style="margin-left:37%;">Research Paper Details Entry</h2>
         <div class="container">
-        <a href="rp_output.php"><button class="back_btn">Back</button></a>
-    <br>
+        <a href="rp_output.php"><button class="back_btn">Back</button></a></div>
     <div class="form_container">
         <form method="POST" action="rp_input.php" enctype="multipart/form-data">
             <table class="form_table">
@@ -149,7 +148,7 @@
             </table>
             <label style="margin-left:5%;"><b>Abstract</b></label>
             <textarea rows="4" cols="128" name="abstract" style="margin-left:10.7%;"></textarea>
-            <p style="margin-left:25%;"><b>Request to enter all the details and if its not available currently, then put "-----" as the value.</b></p>
+            <p style="margin-left:25%;"><b>Request to enter all the details and if its not available currently, then put "-" as the value.</b></p>
             <input style="margin-top:0.5%;"type="submit" name="submit" class="submit_btn">
         </form>
     </div>

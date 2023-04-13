@@ -13,15 +13,16 @@
  }
 
  .title {
-     margin-left: 24.6%;
+     margin-left: 28%;
+     text-align: center;
  }
 
  .ictlogo_header {
      width: 15%;
      float: right;
-     padding-top: 0.5%;
-     padding-right: 1%;
-     margin-left: 24.6%;
+     /* padding-top: 0.5%;
+     padding-right: 1%; */
+     margin-left: 28%;
  }
 
  .main_div {
@@ -56,6 +57,18 @@
      border-color: #a6e9f2;
      border-radius: 5px;
  } */
+
+ .dataTables_length {
+     /*Example*/
+     margin: 10px !important;
+ }
+
+.dataTables_length select {
+     margin: 4px;}
+
+     .dt-button-collection span{
+        margin-top: 20px;
+     }
 
  .container1 {
      display: flex;

@@ -7,7 +7,7 @@ session_start();
     <style>
         <?php include 'css/ipr_output.css'; ?>
     </style>
-    <title>IPR Patent Details</title>
+    <title>IPR Patent</title>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,100&display=swap" rel="stylesheet">
@@ -15,21 +15,22 @@ session_start();
 <body>
     <header class="header_container">
         <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
-        <h1 class="title">Faculty Accreditation</h1>
+        <h1 class="title">Faculty Corner</h1>
         <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
     </header>
-    <a href="../dashboard.php" style="margin-left:2.5%;"><button>Home</button></a><br><br>
+    <a href="../dashboard.php" style="margin-left:0%;"><button>Home</button></a><br><br>
 
     <div class="nav_div" style="background-color:lightblue;">
 	    <h2 style="margin-left:42%;">IPR Patent Details</h2>
     </div>
     
-    <a href="ipr_patent.php" style="margin-left:2.5%;"><button>Add New Data</button></a><br><br><br><br>
+    <a href="ipr_patent.php" style="margin-left:2.5%;"><button>Add New Data</button></a><br><br>
     
     <div class="main_div" >
     <table id="details_table" class="display"  cellspacing="0">
         <thead>
             <tr bgcolor='#21c8de'>
+            <th>Sr No.</th>
 			<th>Faculty Id</th>
 			<th>First Name</th>
             <th>Middle Name</th>
@@ -70,6 +71,7 @@ session_start();
             "processing": true,
             "ajax": "ipr_datatable_fetch.php",
             "columns": [
+                {data: 'id'},
                 {data: 'faculty_id'},
                 {data: 'first_name'},
                 {data: 'middle_name'},
@@ -89,10 +91,10 @@ session_start();
                     data: 'id',
                     render : function(data, type, row) {
                         if(session_id == "1327"){
-                            return '<td><form action="ipr_view.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="View"></form></td><td><form action="ipr_edit.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Edit"></form></td> <td><form action="ipr_delete.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Delete"></form></td>';
+                            return '<td><form action="ipr_view.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="View"></form></td><td><form action="ipr_edit.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Edit"></form></td> <td><form action="ipr_delete.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="Delete"></form></td>';
                         }
                         else{
-                            return '<td><form action="ipr_view.php" method="POST"><input type="hidden" class="ved" style="width:30px;" name="id" value='+data+'></input><input type="submit" value="View"></form></td>';
+                            return '<td><form action="ipr_view.php" method="POST"><input type="hidden"  style="width:30px;" name="id" value='+data+'></input><input type="submit" value="View"></form></td>';
                         }
                         
                         

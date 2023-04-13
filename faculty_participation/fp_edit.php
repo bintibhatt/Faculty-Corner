@@ -1,6 +1,6 @@
 <?php
 session_start();
-    require('db_connect.php');
+    require('../db_connect.php');
     $id=$_REQUEST['id'];
     $query = "SELECT * from faculty_participation_details where id='".$id."'"; 
     $result = mysqli_query($conn, $query) or die ( mysqli_error());
@@ -10,9 +10,117 @@ session_start();
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Update Record</title>
+    <title>Faculty Participation</title>
     <style>
-        <?php include "./css/faculty_participation.css"; ?>
+        body{
+            font-family: 'Inter', sans-serif;
+        }
+        .header_container{
+            width: 100%;
+            display:flex;
+        }
+
+        .mulogo_header {
+            width: 13%;
+            align-content: left;
+        }
+
+        .title{
+            margin-left: 27.5%;
+        }
+
+        .ictlogo_header {
+            width: 15%;
+            float: right;
+            padding-top: 0.5%;
+            padding-right: 1%;
+            margin-left: 27.5%;
+        }
+
+
+        .container button {
+            background-color:#21c8de;
+            border-color:#21c8de;
+            margin-top:1%;
+            margin-left:85%;
+            margin-bottom:1%;
+            width:10%;
+            height:35px;
+            border-radius:10px; 
+        }
+
+        .form_container {
+            background-color: #c9e9f4;
+            align-items: flex-start;
+            padding: 10px;
+            position: center;
+            width: 90%;
+            height: 85%;
+            border: 1px solid;
+            box-sizing: border-box;
+            border-radius: 5px;
+            margin-left: 5%;
+            font-size: 17px;
+        }
+
+        .dd_field {
+            margin: 5px;
+            width: 358px;
+            height: 40px;
+        }
+
+        .t_field {
+            margin: 5px;
+            width: 350px;
+            height: 35px;
+        }
+
+        .form_table {
+            margin-left: 5%;
+            margin-right: 4%;
+        }
+
+        .form_table td {
+            width: 15%;
+        }
+
+        .form_table th {
+            width: 15%;
+            text-align: left;
+        }
+
+        .submit_btn {
+            margin-left: 50%;
+            width: 100px;
+            height: 40px;
+            background-color: #21c8de;
+            border-color: #21c8de;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius: 5px;
+            margin-bottom: 1%;
+        }
+
+        .back_btn {
+            background-color: #21c8de;
+            border-color: #21c8de;
+            width: 7%;
+            height: 30px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+            border-radius: 5px;
+            margin-left: 5%;
+            margin-bottom: 1%;
+        }
+
+        input,
+        select,
+        textarea {
+            border-radius: 10px;
+            border-color: white;
+        }
     </style>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,12 +162,13 @@ session_start();
         ?>
         <header class="header_container">
             <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
+            <h1 class="title">Faculty Corner</h1>
             <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
         </header>
-        <div class="container">
-            <h1 class="title">Faculty Accreditation</h1>
-        </div>
         <h2 style="margin-left:45%;">Update Record</h2>
+        <div class="container">
+        <a href="fp_output.php"><button class="back_btn">Back</button></a>
+    </div>
         <div class="form_container">
         <form method="POST" action="">
             <table class="form_table">

@@ -1,14 +1,13 @@
 <html>
 <head>	
-	<title>Research Paper View</title>
-	<style>
-        body{
+	<title>Faculty Participation</title>
+	<style>body {
             font-family: 'Inter', sans-serif;
         }
-        
-        .header_container{
+
+        .header_container {
             width: 100%;
-            display:flex;
+            display: flex;
         }
 
         a{
@@ -21,8 +20,8 @@
             align-content: left;
         }
 
-        .title{
-            margin-left: 24%;
+        .title {
+            margin-left: 27.5%;
         }
 
         .ictlogo_header {
@@ -30,7 +29,7 @@
             float: right;
             padding-top: 0.5%;
             padding-right: 1%;
-            margin-left: 24.3%;
+            margin-left: 27.5%;
         }
 
 
@@ -108,7 +107,7 @@
 <body>
     <header class="header_container">
         <img class="mulogo_header" src="../images/MU_Logo.png" alt="MU logo">
-        <h1 class="title">Faculty Accreditation</h1>
+        <h1 class="title">Faculty Corner</h1>
         <img class="ictlogo_header" src="../images/ICT_logo_text.png" alt="MU logo">
     </header>
     <div class="container">
@@ -118,8 +117,8 @@
     <div class="rp_div">
 	<?php 
     
-	include("db_connect.php");
-    $id=$_REQUEST['id'];
+	include("../db_connect.php");
+    $id = $_POST['id'];
     $sql = "SELECT * FROM faculty_participation_details WHERE id='".$id."'";
     $result = $conn->query($sql);
 	if ($result->num_rows > 0) {

@@ -151,7 +151,7 @@
     echo "<li><b>Certificates: </b>&nbsp;&nbsp;</li>";
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-            echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$row['certificate']."<a class='download_btn' href=\"./certificate/$row[certificate]\"><button>View</button></a>"."<br>";
+            echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$row['certificate']."<a class='download_btn' href=\"./certificate/$row[certificate]\" target='_blank'><button>View</button></a>"."<br>";
 		}
 	}
 

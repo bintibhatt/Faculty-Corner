@@ -151,8 +151,8 @@ session_start();
                 ],
                 dom: 'Bfrtip',
                 lengthMenu: [
-                [ 5, 10, 25, 50],
-                [ '5 Files', '10 Files', '25 Files', '50 Files' ]
+                [ -1, 5, 10, 25, 50],
+                [ 'All', '5 Files', '10 Files', '25 Files', '50 Files' ]
                 ],
                 buttons: [
                 { extend: 'copy', text: 'Copy' },
@@ -226,8 +226,8 @@ session_start();
             ],
             dom: 'Bfrtip',
             lengthMenu: [
-            [ 5, 10, 25, 50],
-            [ '5 Files', '10 Files', '25 Files', '50 Files' ]
+            [ 5, 10, 25, 50, -1],
+            [ '5 Files', '10 Files', '25 Files', '50 Files', 'All' ]
             ],
             buttons: [
             'pageLength'

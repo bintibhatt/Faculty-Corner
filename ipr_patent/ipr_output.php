@@ -43,7 +43,7 @@ session_start();
 			<th>Team Member-1</th>
 			<th>Team Member-2</th>
 			<th>Team Member-3</th>
-			<th>Club</th>
+			<th>Class</th>
 			<th>Date of Issue</th>
 			<th>Date of Renew</th>
             <th></th>

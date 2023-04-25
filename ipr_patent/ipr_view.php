@@ -112,10 +112,10 @@ session_start();
 			echo "<li><b>Team member-1: </b>&nbsp;&nbsp;".$row['team_1']."<br></li>";
 			echo "<li><b>Team member-2: </b>&nbsp;&nbsp;".$row['team_2']."<br></li>";
 			echo "<li><b>Team member-3: </b>&nbsp;&nbsp;".$row['team_3']."<br></li>";
-			echo "<li><b>Club: </b>&nbsp;&nbsp;".$row['club']."<br></li>";
+			echo "<li><b>Class: </b>&nbsp;&nbsp;".$row['club']."<br></li>";
 			echo "<li><b>Date Of Issue: </b>&nbsp;&nbsp;".$row['date_of_issue']."<br></li>";
 			echo "<li><b>Date of Renew: </b>&nbsp;&nbsp;".$row['date_of_renew']."<br></li>";
-			echo "<li><b>Application Form File: </b>&nbsp;&nbsp;".$row['app_form_file']."<a class='download_btn' href=\"./pdf/$row[app_form_file]\"><button>View</button></a>"."<br></li>";
+			echo "<li><b>Application Form File: </b>&nbsp;&nbsp;".$row['app_form_file']."<a class='download_btn' href=\"./pdf/$row[app_form_file]\" target='_blank'><button>View</button></a>"."<br></li>";
 		}
 	}
 	?>

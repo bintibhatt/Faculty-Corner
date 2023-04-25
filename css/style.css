@@ -104,3 +104,9 @@ header {
     font-family: 'Inter', sans-serif;
     color: #2D3748;
 }
+
+@media only screen and (max-width: 1080px) {
+    .dashboard_container .dashboard_img h2 {
+        font-size: 20px;
+    }
+}

@@ -150,7 +150,7 @@ session_start();
 			echo "<li><b>Role: </b>&nbsp;&nbsp;".$row['role']."<br></li>";
 			echo "<li><b>Current Status: </b>&nbsp;&nbsp;".$row['current_status']."<br></li>";
 			echo "<li><b>Link Article: </b>&nbsp;&nbsp;"."<a href=\"$row[link_article]\">$row[link_article]</a>"."<br></li>";
-			echo "<li><b>File of Article: </b>&nbsp;&nbsp;".$row['file_article']."<a class='download_btn' href=\"./pdf/$row[file_article]\"><button>View</button></a>"."<br></li>";
+			echo "<li><b>File of Article: </b>&nbsp;&nbsp;".$row['file_article']."<a class='download_btn' href=\"./pdf/$row[file_article]\" target='_blank'><button>View</button></a>"."<br></li>";
 			echo "<li><b>Link Journal: </b>&nbsp;&nbsp;"."<a href=\"$row[link_journal]\">$row[link_journal]</a>"."<br></li>" ;	
 			echo "<li><b>Abstract: </b>&nbsp;&nbsp;".$row['abstract'];
 		}

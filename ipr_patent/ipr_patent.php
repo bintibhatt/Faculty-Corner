@@ -39,8 +39,6 @@
                 </tr>
                 
                 <tr>
-                    <th><label>Sr. No.</label></th>
-                    <td><input type="text" name="sr_no" class="t_field"></td>
                     <th><label>Patent Office</label></th>
                     <td>
                         <select id="patent_office" name="patent_office" class="dd_field">
@@ -48,9 +46,6 @@
                             <option value="Government of India">Government Of India</option>
                         </select>
                     </td>
-                </tr>
-
-                <tr>
                     <th><label>IPR Type</label></th>
                     <td>
                         <select id="ipr_type" name="ipr_type" class="dd_field">
@@ -61,38 +56,38 @@
                             <option value="Copyright Patent">Copyright Patent</option>
                         </select>
                     </td>
+                </tr>
+                <tr>
                     <th><label>Number</label></th>
                     <td><input type="text" name="number" class="t_field"></td>
-                </tr>
-
-                <tr>
                     <th><label>Design No.</label></th>
                     <td><input type="text" name="design_no" class="t_field"></td>
+                </tr>
+
+                <tr>
                     <th><label>Date</label></th>
                     <td><input type="date" name="date" class="t_field"></td>
-                </tr>
-
-                <tr>
                     <th><label>Team Member 1</label></th>
                     <td><input type="text" name="team_1" class="t_field"></td>
+                </tr>
+
+                <tr>
                     <th><label>Team Member 2</label></th>
                     <td><input type="text" name="team_2" class="t_field"></td>
-                </tr>
-
-                <tr>
                     <th><label>Team Member 3</label></th>
                     <td><input type="text" name="team_3" class="t_field"></td>
-                    <th><label>Club</label></th>
-                    <td><input type="text" name="club" class="t_field"></td>
                 </tr>
 
                 <tr>
+                    <th><label>Class</label></th>
+                    <td><input type="text" name="club" class="t_field"></td>
                     <th><label>Date of Issue</label></th>
                     <td><input type="date" name="date_of_issue" class="t_field"></td>
+                </tr>
+
+                <tr>
                     <th><label>Date of Renew</label></th>
                     <td><input type="date" name="date_of_renew" class="t_field"></td>
-                </tr>
-                <tr>
                     <th><label>Application Form(Pdf)</label></th>
                     <td><input type="file" name="app_form_file" class="t_field"></td>
                 </tr>
